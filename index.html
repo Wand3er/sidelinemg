@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDELINE — Building Athletes Into Scalable Brands</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-orange: #fc7315;
+            --black: #0A0A0A;
+            --graphite: #1E1E1E;
+            --light-graphite: #2A2A2A;
+            --white: #F5F3EF;
+            --gray: #8A8A8A;
+            --light-gray: #E8E6E2;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* SMOOTH SCROLL GLOBAL */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--white);
+            color: var(--black);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAV & HEADER DINÁMICO */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 60px;
+            transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(245, 243, 239, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.3em;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.4s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav.scrolled .nav-logo {
+            color: var(--black);
+            text-shadow: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-orange);
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--black);
+            text-shadow: none;
+        }
+
+        nav.scrolled .nav-links a:hover {
+            color: var(--brand-orange);
+        }
+
+        .nav-cta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--black) !important;
+            background: var(--white);
+            padding: 12px 28px;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease !important;
+            text-shadow: none !important;
+        }
+
+        nav.scrolled .nav-cta {
+            background: var(--black);
+            color: var(--white) !important;
+        }
+
+        nav.scrolled .nav-cta:hover {
+            background: var(--brand-orange) !important;
+            color: var(--white) !important;
+        }
+
+        /* HERO - SLIDESHOW */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: var(--black);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center 20%;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity 1.5s ease-in-out, transform 8s ease-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 40%, rgba(10, 10, 10, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 700px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 9vw, 130px);
+            line-height: 0.92;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-title span {
+            color: var(--brand-orange);
+        }
+
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(20px, 3vw, 26px);
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            max-width: 550px;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--white);
+            padding: 18px 40px;
+            text-decoration: none;
+            transition: background 0.25s ease, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.2s;
+        }
+
+        .btn-ghost::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            color: var(--brand-orange);
+        }
+
+        .btn-ghost:hover::after {
+            width: 60px;
+        }
+
+        /* TICKER */
+        .ticker {
+            background: var(--black);
+            padding: 14px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            animation: ticker 28s linear infinite;
+            gap: 0;
+        }
+
+        .ticker-item {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.25em;
+            color: var(--white);
+            padding: 0 48px;
+        }
+
+        .ticker-item span {
+            color: var(--brand-orange);
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* MANIFESTO / ABOUT */
+        .manifesto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--black);
+        }
+
+        .manifesto-left {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .manifesto-left-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .manifesto-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            margin-bottom: 24px;
+        }
+
+        .manifesto-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 4vw, 54px);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .manifesto-quote em {
+            font-style: italic;
+            color: var(--brand-orange);
+        }
+
+        .manifesto-body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 420px;
+        }
+
+        .manifesto-right {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            background: var(--black);
+        }
+
+        .manifesto-stat-row {
+            display: flex;
+            gap: 60px;
+        }
+
+        .m-stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 80px;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .m-stat-num sup {
+            font-size: 40px;
+            color: var(--brand-orange);
+        }
+
+        .m-stat-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .manifesto-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--light-graphite);
+            border-top: 1px solid var(--light-graphite);
+        }
+
+        .pillar {
+            background: #111;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding: 24px 20px;
+            border-bottom: 1px solid var(--light-graphite);
+            transition: padding-left 0.3s ease;
+        }
+
+        .pillar:hover {
+            padding-left: 30px;
+        }
+
+        .pillar-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px;
+            color: var(--brand-orange);
+            letter-spacing: 0.1em;
+            min-width: 28px;
+        }
+
+        .pillar-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white);
+            letter-spacing: 0.02em;
+        }
+
+        .pillar-sub {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--gray);
+            margin-top: 3px;
+        }
+
+        /* SERVICES (Diseño a dos columnas justificado, como en la imagen de referencia) */
+        .services {
+            padding: 120px 60px;
+            position: relative;
+            background-color: var(--graphite);
+            color: var(--white);
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .services-header-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .services-header-right {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+        }
+
+        .section-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 6vw, 84px);
+            line-height: 0.92;
+            color: var(--white);
+        }
+
+        .section-title span {
+            color: var(--brand-orange);
+        }
+
+        .services-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--black);
+        }
+
+        .service-card {
+            background: var(--light-graphite);
+            padding: 48px 40px;
+            transition: background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--brand-orange);
+            transition: width 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: #222;
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+        }
+
+        .service-icon {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: var(--brand-orange);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .service-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .service-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ROSTER (Diseño apilado a la izquierda + 4 cards por vista) */
+        .roster {
+            padding: 120px 0;
+            background: var(--black);
+            overflow: hidden;
+        }
+
+        .roster-header {
+            padding: 0 60px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .roster-header .section-eyebrow {
+            color: var(--brand-orange);
+            margin-bottom: 8px;
+        }
+
+        .roster-header .section-title {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .roster-count {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-style: italic;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .roster-scroll {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            padding: 0 60px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .roster-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Ajuste preciso para que quepan 4 cuadros (25vw menos márgenes) */
+        .athlete-card {
+            flex: 0 0 calc((100vw - 120px - 12px) / 4);
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            min-width: 280px;
+        }
+
+        .athlete-silhouette {
+            width: 100%;
+            height: 95%;
+            object-fit: contain;
+            object-position: bottom;
+            position: absolute;
+            bottom: 0;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+
+        .athlete-card:hover .athlete-silhouette {
+            transform: scale(1.05);
+        }
+
+        .athlete-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 10%, rgba(10, 10, 10, 0.1) 60%, transparent 100%);
+            transition: opacity 0.4s;
+            z-index: 2;
+        }
+
+        .athlete-tag {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--brand-orange);
+            padding: 6px 14px;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+            z-index: 3;
+        }
+
+        .athlete-card:hover .athlete-tag {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .athlete-info {
+            position: relative;
+            width: 100%;
+            padding: 40px 30px;
+            z-index: 3;
+        }
+
+        .athlete-team {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            margin-bottom: 6px;
+        }
+
+        .athlete-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .athlete-pos {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+
+        /* TEAM */
+        .team {
+            padding: 120px 0;
+            background-color: var(--white);
+        }
+
+        .team-container {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+
+        .team-header {
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: end;
+        }
+
+        .team-header .section-title {
+            color: var(--black);
+        }
+
+        .team-intro {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .team-card {
+            background: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            border-radius: 4px;
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .team-card:hover .team-photo {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 40%, transparent);
+            transform: translateY(40px);
+            transition: transform 0.35s ease;
+        }
+
+        .team-card:hover .team-info {
+            transform: translateY(0);
+        }
+
+        .team-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+
+        .team-role {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            margin-bottom: 12px;
+        }
+
+        .team-bio {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s;
+        }
+
+        .team-card:hover .team-bio {
+            opacity: 1;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--graphite);
+            padding: 120px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-left {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(56px, 7vw, 96px);
+            line-height: 0.92;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .contact-title span {
+            color: var(--brand-orange);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: var(--brand-orange);
+        }
+
+        .contact-link-label {
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            min-width: 60px;
+        }
+
+        .contact-right {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            background: var(--black);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form-field {
+            background: rgba(255, 255, 255, 0.03);
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--white);
+            outline: none;
+            transition: border-color 0.25s, background 0.25s;
+            width: 100%;
+        }
+
+        .contact-form-field::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+        }
+
+        .contact-form-field:focus {
+            border-bottom-color: var(--brand-orange);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+        }
+
+        .contact-submit {
+            background: var(--brand-orange);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            border: none;
+            padding: 20px 40px;
+            margin-top: 16px;
+            align-self: flex-start;
+            transition: background 0.25s ease, transform 0.2s;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .contact-submit:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 0.4em;
+            color: var(--white);
+        }
+
+        .footer-copy {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.1em;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-socials a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--brand-orange);
+        }
+
+        /* BOTÓN SCROLL TO TOP */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--brand-orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(252, 115, 21, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(252, 115, 21, 0.6);
+        }
+
+        .scroll-top-icon {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: var(--light-graphite);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .athlete-card {
+                flex: 0 0 calc((100vw - 120px - 8px) / 3);
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            nav.scrolled {
+                padding: 15px 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 30px;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 150px;
+            }
+
+            .hero-title {
+                font-size: clamp(50px, 12vw, 80px);
+            }
+
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .manifesto,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .team-grid,
+            .manifesto-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .services,
+            .contact,
+            .roster-header {
+                padding: 80px 30px;
+            }
+
+            .team {
+                padding: 80px 0;
+            }
+
+            .team-container {
+                max-width: 90%;
+            }
+
+            .manifesto-left,
+            .manifesto-right {
+                padding: 80px 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .roster-scroll {
+                padding: 0 30px;
+            }
+
+            .athlete-card {
+                flex: 0 0 85vw;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <nav id="mainNav">
+        <a href="#top" class="nav-logo">SIDELINE</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#roster">Roster</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact" class="nav-cta">Work With Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active" style="background-image: url('https://i.postimg.cc/dVvSGNMP/ADAMES.png')"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/t45vkdbr/JUNIOR.png')"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/YCkyQDcc/MOREL.png')"></div>
+            <div class="slide" style="background-image: url('https://i.postimg.cc/QdbYmgDn/OZUNA.png')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content fade-in">
+            <p class="hero-eyebrow">Athlete Brand Agency · Est. 2026</p>
+            <h1 class="hero-title">Building Athletes<br>Into <span>Scalable Brands.</span></h1>
+            <p class="hero-sub">We don't manage athletes. We architect legacies — turning athletic excellence into enduring commercial identity.</p>
+            <div class="hero-actions">
+                <a href="#roster" class="btn-primary">View Roster</a>
+                <a href="#services" class="btn-ghost">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <span class="ticker-item">Brand Strategy <span>✦</span></span>
+            <span class="ticker-item">Content Production <span>✦</span></span>
+            <span class="ticker-item">Digital Growth <span>✦</span></span>
+            <span class="ticker-item">Partnerships <span>✦</span></span>
+            <span class="ticker-item">PR & Media <span>✦</span></span>
+            <span class="ticker-item">Athlete Marketing <span>✦</span></span>
+            <span class="ticker-item">Long-Term Brand Roadmap <span>✦</span></span>
+            <span class="ticker-item">Brand Strategy <span>✦</span></span>
+            <span class="ticker-item">Content Production <span>✦</span></span>
+            <span class="ticker-item">Digital Growth <span>✦</span></span>
+            <span class="ticker-item">Partnerships <span>✦</span></span>
+            <span class="ticker-item">PR & Media <span>✦</span></span>
+            <span class="ticker-item">Athlete Marketing <span>✦</span></span>
+            <span class="ticker-item">Long-Term Brand Roadmap <span>✦</span></span>
+        </div>
+    </div>
+
+    <section class="manifesto" id="about">
+        <div class="manifesto-left">
+            <div class="manifesto-left-content">
+                <div class="manifesto-label">Who We Are</div>
+                <blockquote class="manifesto-quote">Playing the game inside<br><em>the game.</em></blockquote>
+                <p class="manifesto-body">SIDELINE was born from a simple observation: elite athletes generate enormous visibility, but most never convert that attention into durable personal brands. The window is short. The opportunity is enormous. We exist to bridge that gap — with precision, dedication, and a system built from the ground up for the modern athlete.</p>
+            </div>
+        </div>
+        <div class="manifesto-right">
+            <div class="manifesto-stat-row fade-in">
+                <div class="m-stat">
+                    <div class="m-stat-num">360<sup>°</sup></div>
+                    <div class="m-stat-label">Full-Service<br>Brand Operations</div>
+                </div>
+            </div>
+            <div class="manifesto-pillars fade-in">
+                <div class="pillar"><span class="pillar-num">01</span>
+                    <div>
+                        <div class="pillar-text">Brand Architecture</div>
+                        <div class="pillar-sub">Built for longevity beyond the playing career</div>
+                    </div><span class="pillar-arrow">→</span>
+                </div>
+                <div class="pillar"><span class="pillar-num">02</span>
+                    <div>
+                        <div class="pillar-text">Authentic Content</div>
+                        <div class="pillar-sub">Your story, your voice, your platform</div>
+                    </div><span class="pillar-arrow">→</span>
+                </div>
+                <div class="pillar"><span class="pillar-num">03</span>
+                    <div>
+                        <div class="pillar-text">Commercial Leverage</div>
+                        <div class="pillar-sub">Partnerships that make strategic sense</div>
+                    </div><span class="pillar-arrow">→</span>
+                </div>
+                <div class="pillar"><span class="pillar-num">04</span>
+                    <div>
+                        <div class="pillar-text">Boutique Attention</div>
+                        <div class="pillar-sub">Not a roster number — a relationship</div>
+                    </div><span class="pillar-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="services-header">
+            <div class="services-header-left">
+                <div class="section-eyebrow">What We Do</div>
+                <h2 class="section-title">END-TO-END <span style="color:var(--brand-orange);">ATHLETE</span><br><span style="color:var(--brand-orange);">BRAND</span> OPERATIONS.</h2>
+            </div>
+            <div class="services-header-right fade-in">
+                <p class="services-intro">We don't offer a menu of services. We build a complete, integrated system around each athlete — because brand equity is never built in silos.</p>
+            </div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">01</div>
+                <div class="service-name">Brand Strategy</div>
+                <p class="service-desc">We begin with identity. Who are you beyond the sport? What values do you represent? Every decision flows from a clear, differentiated brand position.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">02</div>
+                <div class="service-name">Content Prod.</div>
+                <p class="service-desc">Content is currency. We produce editorial photography, long-form video, and commercial pieces — ready to publish without revision.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">03</div>
+                <div class="service-name">Digital Growth</div>
+                <p class="service-desc">A large following means nothing if it isn't engaged. We architect digital growth through data-driven strategy and platform-specific expertise.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">04</div>
+                <div class="service-name">Partnerships</div>
+                <p class="service-desc">We negotiate brand partnerships that make strategic sense. We don't chase any deal. We pursue the right ones.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">05</div>
+                <div class="service-name">PR & Media</div>
+                <p class="service-desc">Your reputation is your most valuable asset. We manage narratives, prepare athletes for public moments, and build the brand through press.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">06</div>
+                <div class="service-name">Hybrid Model</div>
+                <p class="service-desc">We work where you work. On the road for the biggest series. Remote for the rest — using platforms like Greenfly to capture premium content everywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="roster" id="roster">
+        <div class="roster-header">
+            <div class="section-eyebrow">Our Athletes</div>
+            <h2 class="section-title">THE <span style="color:var(--brand-orange);">ROSTER.</span></h2>
+            <p class="roster-count">Carefully selected.<br>Deeply committed.</p>
+        </div>
+        <div class="roster-scroll">
+
+            <div class="athlete-card">
+                <img src="https://i.postimg.cc/KYQnCQs2/CAMINERO.png" class="athlete-silhouette" alt="Junior Caminero">
+                <div class="athlete-overlay"></div>
+                <div class="athlete-tag">MLB · Active</div>
+                <div class="athlete-info">
+                    <div class="athlete-team">Tampa Bay Rays</div>
+                    <div class="athlete-name">Junior<br>Caminero</div>
+                    <div class="athlete-pos">3B</div>
+                </div>
+            </div>
+
+            <div class="athlete-card">
+                <img src="https://i.postimg.cc/SKVWHVtp/ADAMES.png" class="athlete-silhouette" alt="Willy Adames">
+                <div class="athlete-overlay"></div>
+                <div class="athlete-tag">MLB · Active</div>
+                <div class="athlete-info">
+                    <div class="athlete-team">MLB</div>
+                    <div class="athlete-name">Willy<br>Adames</div>
+                    <div class="athlete-pos">SS</div>
+                </div>
+            </div>
+
+            <div class="athlete-card">
+                <img src="https://i.postimg.cc/JhKbSKd4/MOREL.png" class="athlete-silhouette" alt="Christopher Morel">
+                <div class="athlete-overlay"></div>
+                <div class="athlete-tag">MLB · Active</div>
+                <div class="athlete-info">
+                    <div class="athlete-team">Tampa Bay Rays</div>
+                    <div class="athlete-name">Christopher<br>Morel</div>
+                    <div class="athlete-pos">LF</div>
+                </div>
+            </div>
+
+            <div class="athlete-card">
+                <img src="https://i.postimg.cc/PqKm0KFN/OZUNA.png" class="athlete-silhouette" alt="Marcell Ozuna">
+                <div class="athlete-overlay"></div>
+                <div class="athlete-tag">MLB · Active</div>
+                <div class="athlete-info">
+                    <div class="athlete-team">Atlanta Braves</div>
+                    <div class="athlete-name">Marcell<br>Ozuna</div>
+                    <div class="athlete-pos">DH</div>
+                </div>
+            </div>
+
+            <div class="athlete-card" style="background: linear-gradient(160deg, #1A1A1A, #2A2A2A); justify-content: center; align-items: center; flex-direction: column;">
+                <div style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--brand-orange); opacity:0.5; margin-bottom: 10px;">+</div>
+                <div style="font-family:'DM Sans',sans-serif; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Join the Roster</div>
+                <div class="athlete-overlay" style="background: transparent;"></div>
+            </div>
+
+            <div class="athlete-card" style="background: linear-gradient(160deg, #1A1A1A, #2A2A2A); justify-content: center; align-items: center; flex-direction: column;">
+                <div style="font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--brand-orange); opacity:0.5; margin-bottom: 10px;">+</div>
+                <div style="font-family:'DM Sans',sans-serif; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Join the Roster</div>
+                <div class="athlete-overlay" style="background: transparent;"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="team-container">
+            <div class="team-header">
+                <div>
+                    <div class="section-eyebrow">Behind the Brand</div>
+                    <h2 class="section-title">The<br><span>People</span><br>Who Make<br>It Work.</h2>
+                </div>
+                <div class="fade-in">
+                    <p class="team-intro">We are three sports industry veterans with the relationships, the experience, and the obsession to build athlete brands at the highest level.</p>
+                </div>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://i.postimg.cc/4Ns10knr/DARLING.png" alt="Darling José" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Darling José</div>
+                        <div class="team-role">Founder & Brand Director</div>
+                        <p class="team-bio">Arquitecto del modelo SIDELINE. Transforma la excelencia deportiva en marcas personales y ecosistemas comerciales diseñados para perdurar más allá del retiro.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.postimg.cc/gkmK7Fr1/MARCO.png" alt="Marco Cabrera" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Marco Cabrera</div>
+                        <div class="team-role">Head of Partnerships & Strategy</div>
+                        <p class="team-bio">Estratega enfocado en traducir la visibilidad del atleta en patrocinios de alto valor. Conecta el talento con las marcas correctas para asegurar un ROI real y a largo plazo.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.postimg.cc/28rxtR3s/SEBASTIAN.png" alt="Sebastián Mañón" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Sebastián Mañón</div>
+                        <div class="team-role">Head of Content & Digital</div>
+                        <p class="team-bio">El motor creativo detrás de cada marca. Dirige la producción de SIDELINE para transformar momentos deportivos en contenido diario que domina los algoritmos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-left">
+            <h2 class="contact-title">Let's<br>Build<br>Your<br><span>Brand.</span></h2>
+            <div class="contact-links">
+                <a href="mailto:hola@sidelineagency.com" class="contact-link"><span class="contact-link-label">Email</span>hola@sidelineagency.com</a>
+                <a href="#" class="contact-link"><span class="contact-link-label">Location</span>Santo Domingo, Dominican Republic</a>
+            </div>
+        </div>
+        <div class="contact-right">
+            <div class="form-row">
+                <input type="text" class="contact-form-field" placeholder="First Name">
+                <input type="text" class="contact-form-field" placeholder="Last Name">
+            </div>
+            <input type="email" class="contact-form-field" placeholder="Email Address">
+            <button class="contact-submit">Send Message →</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SIDELINE</div>
+        <div class="footer-copy">© 2026 Sideline Agency. All rights reserved.</div>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <a href="#top" id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
+        <svg class="scroll-top-icon" viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+
+    <script>
+        // Navbar dinámico y Botón Scroll to Top
+        const nav = document.getElementById('mainNav');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            // Nav logic
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Botón Scroll to Top logic
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // Slider Automático en el Hero
+        const slides = document.querySelectorAll('.hero-slider .slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        // Cambia de imagen cada 5 segundos
+        setInterval(nextSlide, 5000);
+
+        // Intersection Observer para animaciones fade-in
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
