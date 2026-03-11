@@ -130,7 +130,8 @@
   .athlete-card { height: 450px; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; }
   .athlete-card[data-mlb-id] { cursor: pointer; }
   
-  .athlete-silhouette { width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
+  /* AQUÍ LA CORRECCIÓN: object-fit: contain en lugar de cover */
+  .athlete-silhouette { width: 100%; height: 100%; object-fit: contain; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
   .athlete-card:hover .athlete-silhouette { transform: scale(1.05); }
   .athlete-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.95) 10%, rgba(10,10,10,0.1) 60%, transparent 100%); transition: opacity 0.4s; z-index: 2; }
   
@@ -573,7 +574,7 @@
 
 <footer>
   <div class="footer-logo">SIDELINE</div>
-  <div class="footer-copy">© 2026 Sideline Agency. All rights reserved.</div>
+  <div class="footer-copy">© 2025 Sideline Agency. All rights reserved.</div>
   <div class="footer-socials">
     <a href="https://www.instagram.com/dugoutsportsm/" target="_blank">Instagram</a>
     <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank">LinkedIn</a>
