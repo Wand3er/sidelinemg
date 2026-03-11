@@ -19,35 +19,22 @@
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-  }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
   /* NAV & HEADER DINÁMICO (DESKTOP) */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
-  }
-  nav.scrolled {
-    background-color: rgba(245, 243, 239, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 15px 60px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.3em; color: var(--white); text-decoration: none; transition: color 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative; z-index: 1002; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; transition: 0.4s ease; }
+  nav.scrolled { background-color: rgba(245, 243, 239, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 15px 60px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.3em; color: var(--white); text-decoration: none; transition: 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative; z-index: 1002; }
   nav.scrolled .nav-logo { color: var(--black); text-shadow: none; }
+  
   .nav-links { display: flex; gap: 48px; list-style: none; }
-  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
   .nav-links a:hover { color: var(--brand-orange); }
   nav.scrolled .nav-links a { color: var(--black); text-shadow: none; }
   nav.scrolled .nav-links a:hover { color: var(--brand-orange); }
 
-  .nav-cta {
-    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--black) !important; background: var(--white); padding: 12px 28px; text-decoration: none; transition: background 0.3s ease, color 0.3s ease !important; text-shadow: none !important;
-  }
+  .nav-cta { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black) !important; background: var(--white); padding: 12px 28px; text-decoration: none; transition: 0.3s ease !important; text-shadow: none !important; }
   nav.scrolled .nav-cta { background: var(--black); color: var(--white) !important; }
   nav.scrolled .nav-cta:hover { background: var(--brand-orange) !important; color: var(--white) !important; }
 
@@ -55,16 +42,25 @@
   .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; z-index: 1002; padding: 5px; }
   .hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: 0.3s ease; border-radius: 2px; }
   nav.scrolled .hamburger span { background-color: var(--black); }
-  .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--white) !important; }
-  .hamburger.active span:nth-child(2) { opacity: 0; }
-  .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--white) !important; }
 
-  /* MOBILE MENU OVERLAY - OCULTO EN COMPUTADORAS */
-  .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1001; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-20px); }
+  /* MOBILE MENU OVERLAY - DISEÑO ELEGANTE ALINEADO A LA DERECHA */
+  .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1001; display: flex; flex-direction: column; justify-content: center; padding: 40px 30px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-20px); }
   .mobile-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
-  .mobile-menu a { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--white); text-decoration: none; letter-spacing: 0.1em; transition: 0.2s; }
-  .mobile-menu a:hover { color: var(--brand-orange); }
-  .mobile-menu .nav-cta-mobile { color: var(--brand-orange); font-size: 42px; margin-top: 20px; }
+  
+  .mobile-close-btn { align-self: flex-end; background: transparent; border: none; color: var(--gray); font-size: 40px; cursor: pointer; line-height: 1; margin-bottom: 40px; transition: 0.2s; }
+  .mobile-close-btn:hover { color: var(--brand-orange); }
+  
+  .mobile-links-container { display: flex; flex-direction: column; align-items: flex-end; gap: 25px; margin-bottom: 50px; }
+  .mobile-links-container a { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--white); text-decoration: none; letter-spacing: 0.1em; transition: 0.2s; }
+  .mobile-links-container a:hover { color: var(--brand-orange); }
+  .mobile-links-container .nav-cta-mobile { color: var(--brand-orange); font-size: 36px; }
+
+  .mobile-contact-info { display: flex; flex-direction: column; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
+  .m-contact-label { font-family: 'DM Sans', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gray); margin-bottom: 5px; }
+  .m-contact-link { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); text-decoration: none; margin-bottom: 25px; transition: 0.2s;}
+  .m-contact-link:hover { color: var(--brand-orange); }
+  .m-socials { display: flex; gap: 25px; }
+  .m-socials a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-orange); text-decoration: none; }
 
   /* HERO */
   .hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; padding: 0 60px; overflow: hidden; }
@@ -197,7 +193,8 @@
   .modal-profile h3 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--white); line-height: 0.9; margin: 0 0 5px 0; }
   .modal-profile p { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin: 0; }
 
-  .modal-stats { flex: 1; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Contenedor de la tabla */
+  .modal-stats { flex: 1; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
   .mlb-table { width: 100%; border-collapse: collapse; text-align: center; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 13px; }
   .mlb-table th { color: var(--gray); font-weight: 500; font-size: 11px; letter-spacing: 0.1em; border-bottom: 1px solid var(--brand-orange); padding: 12px 8px; text-transform: uppercase; }
   .mlb-table td { padding: 14px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 400; }
@@ -278,41 +275,40 @@
     .hero { padding: 0 30px; align-items: center; justify-content: flex-start; padding-top: 120px; }
     .hero-title { font-size: clamp(45px, 10vw, 80px); white-space: normal; }
     
-    /* 2. Reducir padding de Who We Are */
-    .manifesto { grid-template-columns: 1fr; padding: 60px 0; }
-    .manifesto-left { padding: 30px 30px 10px; }
-    .manifesto-right { padding: 10px 30px 30px; gap: 30px; }
-    .manifesto-stat-row { margin-bottom: -10px; }
+    /* 2. Reducir padding de Who We Are para juntar los textos */
+    .manifesto { grid-template-columns: 1fr; padding: 50px 0; }
+    .manifesto-left { padding: 0 30px; margin-bottom: 20px; }
+    .manifesto-right { padding: 0 30px; gap: 20px; }
+    .manifesto-stat-row { margin-bottom: 0; }
 
-    /* 3. Reorganizar What We Do (Texto al lado del numero) */
+    /* 3. Reorganizar What We Do (Cajas reducidas y textos agrupados) */
     .services-header, .team-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .services-grid, .team-grid, .manifesto-pillars { grid-template-columns: 1fr; }
-    .services { padding: 80px 30px; }
-    .service-card { padding: 30px 25px; } 
-    .service-header-row { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-    .service-icon { margin-bottom: 0; font-size: 40px; }
-    .service-name { margin-bottom: 0; font-size: 24px; line-height: 1; }
+    .services { padding: 60px 30px; }
+    .service-card { padding: 25px 20px; } 
+    .service-header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+    .service-icon { margin-bottom: 0; font-size: 32px; }
+    .service-name { margin-bottom: 0; font-size: 22px; line-height: 1; }
     
-    /* 4. Reducir márgenes de The Roster */
-    .roster { padding: 60px 0; }
-    .roster-header { width: 100%; padding: 0 30px; margin-bottom: 30px; }
+    /* 4. Reducir márgenes de The Roster (Arriba y abajo del titulo) */
+    .roster { padding: 50px 0; }
+    .roster-header { width: 100%; padding: 0 30px; margin-bottom: 20px; }
     .roster-count { white-space: normal; }
     .roster-grid { grid-template-columns: repeat(2, 1fr); padding: 0 30px; }
     
     .team { padding: 80px 0; } .team-container { max-width: 90%; }
-    .manifesto-left, .manifesto-right { padding: 80px 30px; }
     .contact { grid-template-columns: 1fr; padding: 80px 30px; }
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
     .scroll-top-btn { right: 20px; bottom: 120px; }
     
-    /* 5. Asegurar que la tabla Modal no rompa los textos en celular */
+    /* 5. Asegurar que la tabla Modal nazca en la izquierda y no se corte el texto */
     .modal-box { padding: 30px 20px; }
-    .modal-content-wrapper { flex-direction: column; gap: 20px; }
-    .modal-profile { flex: auto; }
+    .modal-content-wrapper { flex-direction: column; align-items: stretch; gap: 20px; }
+    .modal-profile { align-self: center; }
     .modal-profile img { max-width: 120px; } 
-    .mlb-table { min-width: 500px; } /* Fuerza a crear scroll horizontal */
-    .mlb-table th, .mlb-table td { white-space: nowrap; } 
+    .mlb-table { min-width: 500px; } /* Obliga al scroll horizontal */
+    .mlb-table th, .mlb-table td { white-space: nowrap; } /* Prohíbe que el nombre del equipo baje a 2 lineas */
   }
   
   @media (max-width: 600px) {
@@ -339,11 +335,24 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" class="mobile-link">About</a>
-  <a href="#services" class="mobile-link">Services</a>
-  <a href="#roster" class="mobile-link">Roster</a>
-  <a href="#team" class="mobile-link">Team</a>
-  <a href="#contact" class="mobile-link nav-cta-mobile">Contact Us</a>
+  <button class="mobile-close-btn" id="mobileCloseBtn">&times;</button>
+  
+  <div class="mobile-links-container">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#roster" class="mobile-link">Roster</a>
+    <a href="#team" class="mobile-link">Team</a>
+    <a href="#contact" class="mobile-link nav-cta-mobile">Contact Us</a>
+  </div>
+  
+  <div class="mobile-contact-info">
+    <p class="m-contact-label">Email</p>
+    <a href="mailto:admin@sidelinemg.com" class="m-contact-link">admin@sidelinemg.com</a>
+    <div class="m-socials">
+      <a href="https://www.instagram.com/dugoutsportsm/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
 </div>
 
 <section class="hero">
@@ -718,17 +727,22 @@
   // Mobile Menu Toggle
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
+  // Abrir menú con el botón de hamburguesa
   hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
+    mobileMenu.classList.add('active');
   });
 
-  // Cerrar menú móvil al hacer clic en un link
+  // Cerrar menú con la "X" gigante
+  mobileCloseBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+  });
+
+  // Cerrar menú al hacer clic en un link
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-      hamburgerBtn.classList.remove('active');
       mobileMenu.classList.remove('active');
     });
   });
