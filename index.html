@@ -28,7 +28,8 @@
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.3em; color: var(--white); text-decoration: none; transition: 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative; z-index: 1002; }
   nav.scrolled .nav-logo { color: var(--black); text-shadow: none; }
   
-  .nav-links { display: flex; gap: 48px; list-style: none; }
+  /* Links agrupados a la derecha */
+  .nav-links { display: flex; gap: 48px; list-style: none; align-items: center; }
   .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
   .nav-links a:hover { color: var(--brand-orange); }
   nav.scrolled .nav-links a { color: var(--black); text-shadow: none; }
@@ -125,7 +126,6 @@
   .service-card:hover { background: #222; }
   .service-card:hover::before { width: 100%; }
   
-  /* Preparación estructural para desktop de los iconos/títulos de servicios */
   .service-header-row { display: block; }
   .service-icon { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--brand-orange); opacity: 0.5; line-height: 1; margin-bottom: 24px; }
   .service-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; color: var(--white); margin-bottom: 16px; }
@@ -141,11 +141,20 @@
 
   .roster-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 0 60px; }
   
-  .athlete-card { height: 450px; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; }
-  .athlete-card[data-mlb-id] { cursor: pointer; }
+  /* AQUÍ LA CORRECCIÓN MAESTRA: aspect-ratio en lugar de height fijo */
+  .athlete-card { 
+    aspect-ratio: 4 / 5; /* Obliga a la tarjeta a mantener su forma geométrica en cualquier pantalla */
+    position: relative; 
+    overflow: hidden; 
+    background: #111; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    cursor: pointer; 
+  }
   
-  /* AQUÍ ESTÁ EL AJUSTE PARA IMAC (NO CORTAR CABEZAS) */
-  .athlete-silhouette { width: 100%; height: 100%; object-fit: contain; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
+  /* Al tener aspect-ratio, podemos usar COVER sin que corte cabezas de forma impredecible */
+  .athlete-silhouette { width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
   .athlete-card:hover .athlete-silhouette { transform: scale(1.05); }
   .athlete-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.95) 10%, rgba(10,10,10,0.1) 60%, transparent 100%); transition: opacity 0.4s; z-index: 2; }
   
@@ -251,7 +260,7 @@
   .footer-socials a:hover { color: var(--brand-orange); }
 
   /* BOTÓN SCROLL TO TOP */
-  .scroll-top-btn { position: fixed; bottom: 100px; right: 40px; width: 50px; height: 50px; background-color: var(--black); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
+  .scroll-top-btn { position: fixed; bottom: 100px; right: 40px; width: 50px; height: 50px; background: var(--black); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
   .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
   .scroll-top-btn:hover { transform: translateY(-5px); background-color: var(--white); }
   .scroll-top-icon { width: 20px; height: 20px; fill: none; stroke: var(--brand-orange); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -269,7 +278,7 @@
   @media (max-width: 900px) {
     /* 1. Activar menú hamburguesa solo en celulares */
     nav { padding: 20px 30px; } nav.scrolled { padding: 15px 30px; } 
-    .nav-links, .nav-cta { display: none; }
+    .nav-links { display: none; }
     .hamburger { display: flex; }
 
     .hero { padding: 0 30px; align-items: center; justify-content: flex-start; padding-top: 120px; }
@@ -307,13 +316,12 @@
     .modal-content-wrapper { flex-direction: column; align-items: stretch; gap: 20px; }
     .modal-profile { align-self: center; }
     .modal-profile img { max-width: 120px; } 
-    .mlb-table { min-width: 500px; } /* Obliga al scroll horizontal */
-    .mlb-table th, .mlb-table td { white-space: nowrap; } /* Prohíbe que el nombre del equipo baje a 2 lineas */
+    .mlb-table { min-width: 500px; } /* Fuerza a crear scroll horizontal */
+    .mlb-table th, .mlb-table td { white-space: nowrap; } 
   }
   
   @media (max-width: 600px) {
     .roster-grid { grid-template-columns: 1fr; }
-    .athlete-card { height: 400px; }
   }
 </style>
 </head>
@@ -326,9 +334,8 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#roster">Roster</a></li>
     <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Contact Us</a>
-  
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
