@@ -28,7 +28,6 @@
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.3em; color: var(--white); text-decoration: none; transition: 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative; z-index: 1002; }
   nav.scrolled .nav-logo { color: var(--black); text-shadow: none; }
   
-  /* Links agrupados a la derecha */
   .nav-links { display: flex; gap: 48px; list-style: none; align-items: center; }
   .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
   .nav-links a:hover { color: var(--brand-orange); }
@@ -44,7 +43,7 @@
   .hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: 0.3s ease; border-radius: 2px; }
   nav.scrolled .hamburger span { background-color: var(--black); }
 
-  /* MOBILE MENU OVERLAY - DISEÑO ELEGANTE ALINEADO A LA DERECHA */
+  /* MOBILE MENU OVERLAY */
   .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1001; display: flex; flex-direction: column; justify-content: center; padding: 40px 30px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-20px); }
   .mobile-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
   
@@ -141,19 +140,7 @@
 
   .roster-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 0 60px; }
   
-  /* AQUÍ LA CORRECCIÓN MAESTRA: aspect-ratio en lugar de height fijo */
-  .athlete-card { 
-    aspect-ratio: 4 / 5; /* Obliga a la tarjeta a mantener su forma geométrica en cualquier pantalla */
-    position: relative; 
-    overflow: hidden; 
-    background: #111; 
-    display: flex; 
-    justify-content: center; 
-    align-items: flex-end; 
-    cursor: pointer; 
-  }
-  
-  /* Al tener aspect-ratio, podemos usar COVER sin que corte cabezas de forma impredecible */
+  .athlete-card { aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; cursor: pointer; }
   .athlete-silhouette { width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
   .athlete-card:hover .athlete-silhouette { transform: scale(1.05); }
   .athlete-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.95) 10%, rgba(10,10,10,0.1) 60%, transparent 100%); transition: opacity 0.4s; z-index: 2; }
@@ -202,7 +189,6 @@
   .modal-profile h3 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--white); line-height: 0.9; margin: 0 0 5px 0; }
   .modal-profile p { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin: 0; }
 
-  /* Contenedor de la tabla */
   .modal-stats { flex: 1; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
   .mlb-table { width: 100%; border-collapse: collapse; text-align: center; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 13px; }
   .mlb-table th { color: var(--gray); font-weight: 500; font-size: 11px; letter-spacing: 0.1em; border-bottom: 1px solid var(--brand-orange); padding: 12px 8px; text-transform: uppercase; }
@@ -234,7 +220,7 @@
   .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,0.8); opacity: 0; transition: opacity 0.3s ease 0.1s; }
   .team-card:hover .team-bio { opacity: 1; }
 
-  /* CONTACT */
+  /* CONTACT (Formulario y Links Actualizados) */
   .contact { background: var(--graphite); padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; position: relative; overflow: hidden;}
   .contact-left { position: relative; z-index: 1; }
   .contact-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 96px); line-height: 0.92; color: var(--white); margin-bottom: 40px; }
@@ -243,6 +229,8 @@
   .contact-link { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 16px; transition: color 0.2s; }
   a.contact-link:hover { color: var(--brand-orange); }
   .contact-link-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-orange); min-width: 60px; }
+  
+  /* Ajuste de formulario para envío automático */
   .contact-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 3px; background: var(--black); padding: 40px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
   .contact-form-field { background: rgba(255,255,255,0.03); border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: border-color 0.25s, background 0.25s; width: 100%; }
   .contact-form-field::placeholder { color: rgba(255,255,255,0.3); font-size: 12px; letter-spacing: 0.1em; }
@@ -260,7 +248,7 @@
   .footer-socials a:hover { color: var(--brand-orange); }
 
   /* BOTÓN SCROLL TO TOP */
-  .scroll-top-btn { position: fixed; bottom: 100px; right: 40px; width: 50px; height: 50px; background: var(--black); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
+  .scroll-top-btn { position: fixed; bottom: 100px; right: 40px; width: 50px; height: 50px; background-color: var(--black); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
   .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
   .scroll-top-btn:hover { transform: translateY(-5px); background-color: var(--white); }
   .scroll-top-icon { width: 20px; height: 20px; fill: none; stroke: var(--brand-orange); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -276,21 +264,18 @@
   }
   
   @media (max-width: 900px) {
-    /* 1. Activar menú hamburguesa solo en celulares */
     nav { padding: 20px 30px; } nav.scrolled { padding: 15px 30px; } 
-    .nav-links { display: none; }
+    .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
 
     .hero { padding: 0 30px; align-items: center; justify-content: flex-start; padding-top: 120px; }
     .hero-title { font-size: clamp(45px, 10vw, 80px); white-space: normal; }
     
-    /* 2. Reducir padding de Who We Are para juntar los textos */
     .manifesto { grid-template-columns: 1fr; padding: 50px 0; }
     .manifesto-left { padding: 0 30px; margin-bottom: 20px; }
     .manifesto-right { padding: 0 30px; gap: 20px; }
     .manifesto-stat-row { margin-bottom: 0; }
 
-    /* 3. Reorganizar What We Do (Cajas reducidas y textos agrupados) */
     .services-header, .team-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .services-grid, .team-grid, .manifesto-pillars { grid-template-columns: 1fr; }
     .services { padding: 60px 30px; }
@@ -299,7 +284,6 @@
     .service-icon { margin-bottom: 0; font-size: 32px; }
     .service-name { margin-bottom: 0; font-size: 22px; line-height: 1; }
     
-    /* 4. Reducir márgenes de The Roster (Arriba y abajo del titulo) */
     .roster { padding: 50px 0; }
     .roster-header { width: 100%; padding: 0 30px; margin-bottom: 20px; }
     .roster-count { white-space: normal; }
@@ -311,12 +295,11 @@
     footer { flex-direction: column; gap: 24px; text-align: center; }
     .scroll-top-btn { right: 20px; bottom: 120px; }
     
-    /* 5. Asegurar que la tabla Modal nazca en la izquierda y no se corte el texto */
     .modal-box { padding: 30px 20px; }
     .modal-content-wrapper { flex-direction: column; align-items: stretch; gap: 20px; }
     .modal-profile { align-self: center; }
     .modal-profile img { max-width: 120px; } 
-    .mlb-table { min-width: 500px; } /* Fuerza a crear scroll horizontal */
+    .mlb-table { min-width: 500px; } 
     .mlb-table th, .mlb-table td { white-space: nowrap; } 
   }
   
@@ -650,21 +633,27 @@
     <div class="contact-links">
       <a href="mailto:admin@sidelinemg.com" class="contact-link"><span class="contact-link-label">Email</span>admin@sidelinemg.com</a>
       <div class="contact-link" style="cursor: default;"><span class="contact-link-label">Office</span>(809) 590-6325</div>
-      <a href="#" class="contact-link"><span class="contact-link-label">Location</span>Calle Hatuey 52A, Los Cacicazgos, D.N., República Dominicana</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Calle+Hatuey+52A,+Los+Cacicazgos,+Distrito+Nacional,+Republica+Dominicana" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-link-label">Location</span>Calle Hatuey 52A, Los Cacicazgos, D.N., República Dominicana</a>
     </div>
   </div>
-  <div class="contact-right">
+  
+  <form action="https://formsubmit.co/sebastian@sidelinemg.com" method="POST" class="contact-right">
+    
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de SIDELINE">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+
     <div class="form-row">
-      <input type="text" class="contact-form-field" placeholder="First Name">
-      <input type="text" class="contact-form-field" placeholder="Last Name">
+      <input type="text" name="First_Name" class="contact-form-field" placeholder="First Name" required>
+      <input type="text" name="Last_Name" class="contact-form-field" placeholder="Last Name" required>
     </div>
     <div class="form-row">
-      <input type="email" class="contact-form-field" placeholder="Email Address">
-      <input type="tel" class="contact-form-field" placeholder="Phone Number">
+      <input type="email" name="Email" class="contact-form-field" placeholder="Email Address" required>
+      <input type="tel" name="Phone" class="contact-form-field" placeholder="Phone Number">
     </div>
-    <textarea class="contact-form-field" rows="3" placeholder="Your Message" style="resize:none;"></textarea>
-    <button class="contact-submit">Send Message →</button>
-  </div>
+    <textarea name="Message" class="contact-form-field" rows="3" placeholder="Your Message" style="resize:none;" required></textarea>
+    <button type="submit" class="contact-submit">Send Message →</button>
+  </form>
 </section>
 
 <footer>
@@ -735,7 +724,7 @@
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link, .m-contact-link, .m-socials a');
 
   // Abrir menú con el botón de hamburguesa
   hamburgerBtn.addEventListener('click', () => {
@@ -747,7 +736,7 @@
     mobileMenu.classList.remove('active');
   });
 
-  // Cerrar menú al hacer clic en un link
+  // Cerrar menú al hacer clic en cualquier link interno
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
@@ -771,7 +760,7 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // --- LÓGICA DEL MODAL DE MLB STATS (Avanzado) ---
+  // --- LÓGICA DEL MODAL DE MLB STATS ---
   const modal = document.getElementById('mlbModal');
   const btnClose = document.getElementById('closeModal');
   const loader = document.getElementById('modalLoader');
@@ -801,7 +790,7 @@
       modal.classList.add('active');
 
       try {
-        // Viaje a la API de MLB buscando YearByYear (temporadas) y Career (de por vida)
+        // Viaje a la API de MLB buscando YearByYear y Career
         const response = await fetch(`https://statsapi.mlb.com/api/v1/people/${mlbId}?hydrate=stats(group=[hitting],type=[yearByYear,career])`);
         const data = await response.json();
         const player = data.people[0];
@@ -812,11 +801,8 @@
           const ybyStats = player.stats.find(s => s.type.displayName === 'yearByYear');
           const careerStats = player.stats.find(s => s.type.displayName === 'career');
 
-          // Procesar las últimas 3 temporadas de Ligas Mayores
           if (ybyStats && ybyStats.splits) {
-            // Filtrar solo Ligas Mayores (sport.id === 1)
             const mlbSplits = ybyStats.splits.filter(s => s.sport && s.sport.id === 1);
-            // Tomar solo las últimas 3 entradas
             const last3 = mlbSplits.slice(-3);
             
             last3.forEach(split => {
@@ -838,7 +824,6 @@
             });
           }
 
-          // Procesar la fila final de Carrera (Career)
           if (careerStats && careerStats.splits && careerStats.splits.length > 0) {
             const c = careerStats.splits[0].stat;
             rowsHtml += `
