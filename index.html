@@ -43,7 +43,7 @@
   .hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: 0.3s ease; border-radius: 2px; }
   nav.scrolled .hamburger span { background-color: var(--black); }
 
-  /* MOBILE MENU OVERLAY */
+  /* MOBILE MENU OVERLAY - DISEÑO ELEGANTE ALINEADO A LA DERECHA */
   .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1001; display: flex; flex-direction: column; justify-content: center; padding: 40px 30px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-20px); }
   .mobile-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
   
@@ -161,14 +161,14 @@
   .generic-shape { width: 80%; height: 85%; background: linear-gradient(180deg, rgba(252,115,21,0.1) 0%, rgba(252,115,21,0.02) 100%); border-radius: 100px 100px 20px 20px; position: absolute; bottom: 20px; transition: transform 0.6s ease; }
   .athlete-card:hover .generic-shape { transform: scale(1.05); }
 
-  /* MODAL ESTILO MLB.COM AVANZADO */
+  /* MODAL BASE */
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 20px;
   }
   .modal-overlay.active { opacity: 1; visibility: visible; }
   .modal-box {
-    background: var(--light-graphite); width: 100%; max-width: 850px; border-radius: 8px; padding: 40px; position: relative;
+    background: var(--light-graphite); width: 100%; border-radius: 8px; padding: 40px; position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s ease; border-top: 4px solid var(--brand-orange); max-height: 95vh;
   }
   .modal-overlay.active .modal-box { transform: translateY(0); }
@@ -178,14 +178,11 @@
   }
   .modal-close:hover { color: var(--brand-orange); }
 
+  /* MODAL MLB SPECIFIC */
+  #mlbModal .modal-box { max-width: 850px; }
   .modal-content-wrapper { display: flex; gap: 40px; align-items: center; overflow-y: auto; }
-  
   .modal-profile { flex: 0 0 220px; text-align: center; }
-  .modal-profile img {
-    width: 100%; max-width: 180px; border-radius: 50%; background: #111;
-    border: 4px solid var(--brand-orange); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    object-fit: cover; aspect-ratio: 1/1;
-  }
+  .modal-profile img { width: 100%; max-width: 180px; border-radius: 50%; background: #111; border: 4px solid var(--brand-orange); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); object-fit: cover; aspect-ratio: 1/1; }
   .modal-profile h3 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--white); line-height: 0.9; margin: 0 0 5px 0; }
   .modal-profile p { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin: 0; }
 
@@ -220,7 +217,7 @@
   .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,0.8); opacity: 0; transition: opacity 0.3s ease 0.1s; }
   .team-card:hover .team-bio { opacity: 1; }
 
-  /* CONTACT (Formulario y Links Actualizados) */
+  /* CONTACT */
   .contact { background: var(--graphite); padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; position: relative; overflow: hidden;}
   .contact-left { position: relative; z-index: 1; }
   .contact-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 96px); line-height: 0.92; color: var(--white); margin-bottom: 40px; }
@@ -229,14 +226,12 @@
   .contact-link { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 16px; transition: color 0.2s; }
   a.contact-link:hover { color: var(--brand-orange); }
   .contact-link-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-orange); min-width: 60px; }
-  
-  /* Ajuste de formulario para envío automático */
   .contact-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 3px; background: var(--black); padding: 40px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
   .contact-form-field { background: rgba(255,255,255,0.03); border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: border-color 0.25s, background 0.25s; width: 100%; }
   .contact-form-field::placeholder { color: rgba(255,255,255,0.3); font-size: 12px; letter-spacing: 0.1em; }
   .contact-form-field:focus { border-bottom-color: var(--brand-orange); background: rgba(255,255,255,0.06); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-  .contact-submit { background: var(--brand-orange); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; border: none; padding: 20px 40px; margin-top: 16px; align-self: flex-start; transition: background 0.25s ease, transform 0.2s; cursor: pointer; border-radius: 2px;}
+  .contact-submit { background: var(--brand-orange); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; border: none; padding: 20px 40px; margin-top: 16px; align-self: flex-start; transition: all 0.25s ease; cursor: pointer; border-radius: 2px;}
   .contact-submit:hover { background: var(--white); color: var(--black); transform: translateY(-2px); }
 
   /* FOOTER */
@@ -325,7 +320,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close-btn" id="mobileCloseBtn">&times;</button>
+  <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
   
   <div class="mobile-links-container">
     <a href="#about" class="mobile-link">About</a>
@@ -469,7 +464,6 @@
   </div>
   
   <div class="roster-grid">
-    
     <div class="athlete-card fade-in" data-mlb-id="691406" data-name="Junior Caminero" data-team="Tampa Bay Rays" data-pos="3B">
       <img src="https://i.postimg.cc/g0mGbzLc/CAMINERO2.png" class="athlete-silhouette" alt="Junior Caminero">
       <div class="athlete-overlay"></div>
@@ -481,7 +475,6 @@
         <div class="athlete-pos">3B</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in" data-mlb-id="642715" data-name="Willy Adames" data-team="San Francisco Giants" data-pos="SS">
       <img src="https://i.postimg.cc/Xv4n6jB7/ADAMES2.png" class="athlete-silhouette" alt="Willy Adames">
       <div class="athlete-overlay"></div>
@@ -493,7 +486,6 @@
         <div class="athlete-pos">SS</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in" data-mlb-id="666624" data-name="Christopher Morel" data-team="Miami Marlins" data-pos="LF">
       <img src="https://i.postimg.cc/mrBTWL1r/MOREL2.png" class="athlete-silhouette" alt="Christopher Morel">
       <div class="athlete-overlay"></div>
@@ -505,7 +497,6 @@
         <div class="athlete-pos">LF</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in" data-mlb-id="542303" data-name="Marcell Ozuna" data-team="Pittsburgh Pirates" data-pos="DH">
       <img src="https://i.postimg.cc/6QtBxW4p/OZUNA2.png" class="athlete-silhouette" alt="Marcell Ozuna">
       <div class="athlete-overlay"></div>
@@ -517,7 +508,6 @@
         <div class="athlete-pos">DH</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="AR"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -528,7 +518,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="HR"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -539,7 +528,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="ER"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -550,7 +538,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="AG"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -561,7 +548,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="MA"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -572,7 +558,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
     <div class="athlete-card fade-in">
       <div class="athlete-placeholder" data-initials="HR"><div class="generic-shape"></div></div>
       <div class="athlete-overlay"></div>
@@ -583,7 +568,6 @@
         <div class="athlete-pos">TBD</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -637,8 +621,7 @@
     </div>
   </div>
   
-  <form action="https://formsubmit.co/sebastian@sidelinemg.com" method="POST" class="contact-right">
-    
+  <form id="ajaxContactForm" action="https://formsubmit.co/sebastian@sidelinemg.com" method="POST" class="contact-right">
     <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de SIDELINE">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="box">
@@ -671,15 +654,13 @@
 
 <div id="mlbModal" class="modal-overlay">
   <div class="modal-box">
-    <button class="modal-close" id="closeModal">&times;</button>
-    
+    <button class="modal-close" id="closeModal">×</button>
     <div class="modal-content-wrapper" id="modalDataWrapper" style="display: none;">
       <div class="modal-profile">
         <img id="modalProfileImg" src="" alt="Player Headshot">
         <h3 id="modalPlayerName">Player Name</h3>
         <p id="modalPlayerInfo">Team Name · Pos</p>
       </div>
-      
       <div class="modal-stats">
         <table class="mlb-table">
           <thead>
@@ -696,18 +677,24 @@
               <th>OPS</th>
             </tr>
           </thead>
-          <tbody id="modalStatsBody">
-            </tbody>
+          <tbody id="modalStatsBody"></tbody>
         </table>
         <div class="modal-powered">Powered by MLB Stats API</div>
       </div>
     </div>
-
     <div class="modal-loader" id="modalLoader">
       <div class="spinner"></div>
       <div style="font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--brand-orange); text-transform: uppercase;">Extrayendo Data Oficial de MLB...</div>
     </div>
-    
+  </div>
+</div>
+
+<div id="successModal" class="modal-overlay">
+  <div class="modal-box" style="max-width: 450px; text-align: center; padding: 60px 40px;">
+    <button class="modal-close" id="closeSuccessModal">×</button>
+    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 50px; color: var(--brand-orange); line-height: 1; margin-bottom: 15px;">MESSAGE RECEIVED.</div>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 40px;">Thank you for reaching out. Our team will review your inquiry and get back to you shortly.</p>
+    <button id="successOkBtn" class="contact-submit" style="margin-top: 0; width: 100%;">OK</button>
   </div>
 </div>
 
@@ -726,22 +713,9 @@
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const mobileLinks = document.querySelectorAll('.mobile-link, .m-contact-link, .m-socials a');
 
-  // Abrir menú con el botón de hamburguesa
-  hamburgerBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('active');
-  });
-
-  // Cerrar menú con la "X" gigante
-  mobileCloseBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-  });
-
-  // Cerrar menú al hacer clic en cualquier link interno
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-    });
-  });
+  hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.add('active'); });
+  mobileCloseBtn.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+  mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
 
   // Slider Automático en el Hero
   const slides = document.querySelectorAll('.hero-slider .slide');
@@ -767,34 +741,25 @@
   const dataWrapper = document.getElementById('modalDataWrapper');
   const statsBody = document.getElementById('modalStatsBody');
   
-  // Cerrar Modal
   const closeModal = () => { modal.classList.remove('active'); };
   btnClose.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
 
-  // Abrir Modal y Buscar Datos
   document.querySelectorAll('.athlete-card[data-mlb-id]').forEach(card => {
     card.addEventListener('click', async () => {
       const mlbId = card.getAttribute('data-mlb-id');
-      
-      // Llenar información básica estática
       document.getElementById('modalPlayerName').innerHTML = card.getAttribute('data-name').replace(' ', '<br>');
       document.getElementById('modalPlayerInfo').textContent = card.getAttribute('data-team') + ' · ' + card.getAttribute('data-pos');
-      
-      // La foto oficial directa desde los servidores seguros de MLB
       document.getElementById('modalProfileImg').src = `https://securea.mlb.com/mlb/images/players/head_shot/${mlbId}.jpg`;
 
-      // Mostrar Modal y Loading
       dataWrapper.style.display = 'none';
       loader.style.display = 'flex';
       modal.classList.add('active');
 
       try {
-        // Viaje a la API de MLB buscando YearByYear y Career
         const response = await fetch(`https://statsapi.mlb.com/api/v1/people/${mlbId}?hydrate=stats(group=[hitting],type=[yearByYear,career])`);
         const data = await response.json();
         const player = data.people[0];
-        
         let rowsHtml = '';
 
         if (player.stats) {
@@ -804,59 +769,76 @@
           if (ybyStats && ybyStats.splits) {
             const mlbSplits = ybyStats.splits.filter(s => s.sport && s.sport.id === 1);
             const last3 = mlbSplits.slice(-3);
-            
             last3.forEach(split => {
               const st = split.stat;
-              rowsHtml += `
-                <tr>
-                  <td style="text-align:left;">${split.season}</td>
-                  <td style="text-align:left; font-weight: 500; color: var(--brand-orange);">${split.team ? split.team.name : 'TOT'}</td>
-                  <td>${st.gamesPlayed || 0}</td>
-                  <td>${st.atBats || 0}</td>
-                  <td>${st.runs || 0}</td>
-                  <td>${st.hits || 0}</td>
-                  <td>${st.homeRuns || 0}</td>
-                  <td>${st.rbi || 0}</td>
-                  <td>${st.avg || '.000'}</td>
-                  <td>${st.ops || '.000'}</td>
-                </tr>
-              `;
+              rowsHtml += `<tr><td style="text-align:left;">${split.season}</td><td style="text-align:left; font-weight: 500; color: var(--brand-orange);">${split.team ? split.team.name : 'TOT'}</td><td>${st.gamesPlayed || 0}</td><td>${st.atBats || 0}</td><td>${st.runs || 0}</td><td>${st.hits || 0}</td><td>${st.homeRuns || 0}</td><td>${st.rbi || 0}</td><td>${st.avg || '.000'}</td><td>${st.ops || '.000'}</td></tr>`;
             });
           }
 
           if (careerStats && careerStats.splits && careerStats.splits.length > 0) {
             const c = careerStats.splits[0].stat;
-            rowsHtml += `
-              <tr class="career-row">
-                <td colspan="2" style="text-align:left;">CAREER</td>
-                <td>${c.gamesPlayed || 0}</td>
-                <td>${c.atBats || 0}</td>
-                <td>${c.runs || 0}</td>
-                <td>${c.hits || 0}</td>
-                <td>${c.homeRuns || 0}</td>
-                <td>${c.rbi || 0}</td>
-                <td>${c.avg || '.000'}</td>
-                <td>${c.ops || '.000'}</td>
-              </tr>
-            `;
+            rowsHtml += `<tr class="career-row"><td colspan="2" style="text-align:left;">CAREER</td><td>${c.gamesPlayed || 0}</td><td>${c.atBats || 0}</td><td>${c.runs || 0}</td><td>${c.hits || 0}</td><td>${c.homeRuns || 0}</td><td>${c.rbi || 0}</td><td>${c.avg || '.000'}</td><td>${c.ops || '.000'}</td></tr>`;
           }
         }
 
-        if (rowsHtml === '') {
-          rowsHtml = '<tr><td colspan="10" style="padding: 30px;">Stats not available</td></tr>';
-        }
-
+        if (rowsHtml === '') rowsHtml = '<tr><td colspan="10" style="padding: 30px;">Stats not available</td></tr>';
         statsBody.innerHTML = rowsHtml;
-
       } catch (error) {
         statsBody.innerHTML = `<tr><td colspan="10" style="padding: 30px; color: var(--brand-orange);">Error fetching live MLB stats.</td></tr>`;
       }
-
-      // Ocultar loader y mostrar datos
       loader.style.display = 'none';
       dataWrapper.style.display = 'flex';
     });
   });
+
+  // --- LÓGICA DE ENVÍO DE FORMULARIO (AJAX PREMIUM) ---
+  const contactForm = document.getElementById('ajaxContactForm');
+  const successModal = document.getElementById('successModal');
+  const closeSuccessModal = document.getElementById('closeSuccessModal');
+  const successOkBtn = document.getElementById('successOkBtn');
+
+  if(contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita recargar la página
+      
+      const submitBtn = contactForm.querySelector('.contact-submit');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'SENDING...';
+      submitBtn.style.opacity = '0.7';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(contactForm);
+
+      fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+          if (response.ok) {
+              successModal.classList.add('active'); // Muestra el Modal de Gracias
+              contactForm.reset(); // Limpia las casillas
+          } else {
+              alert('Oops! Hubo un problema al enviar el mensaje.');
+          }
+      })
+      .catch(error => {
+          alert('Oops! Hubo un problema de conexión.');
+      })
+      .finally(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.opacity = '1';
+          submitBtn.disabled = false;
+      });
+    });
+  }
+
+  // Cerrar Modal de Éxito
+  const closeSuccess = () => { successModal.classList.remove('active'); };
+  closeSuccessModal.addEventListener('click', closeSuccess);
+  successOkBtn.addEventListener('click', closeSuccess);
+  successModal.addEventListener('click', (e) => { if (e.target === successModal) { closeSuccess(); } });
+
 </script>
 </body>
 </html>
