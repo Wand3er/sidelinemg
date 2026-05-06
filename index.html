@@ -28,7 +28,6 @@
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.3em; color: var(--white); text-decoration: none; transition: 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative; z-index: 1002; }
   nav.scrolled .nav-logo { color: var(--black); text-shadow: none; }
   
-  /* Links agrupados a la derecha */
   .nav-links { display: flex; gap: 48px; list-style: none; align-items: center; }
   .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
   .nav-links a:hover { color: var(--brand-orange); }
@@ -39,12 +38,12 @@
   nav.scrolled .nav-cta { background: var(--black); color: var(--white) !important; }
   nav.scrolled .nav-cta:hover { background: var(--brand-orange) !important; color: var(--white) !important; }
 
-  /* HAMBURGER MENU - OCULTO EN COMPUTADORAS */
+  /* HAMBURGER MENU */
   .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; z-index: 1002; padding: 5px; }
   .hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: 0.3s ease; border-radius: 2px; }
   nav.scrolled .hamburger span { background-color: var(--black); }
 
-  /* MOBILE MENU OVERLAY - DISEÑO ELEGANTE ALINEADO A LA DERECHA */
+  /* MOBILE MENU OVERLAY */
   .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1001; display: flex; flex-direction: column; justify-content: center; padding: 40px 30px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-20px); }
   .mobile-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
   
@@ -63,7 +62,7 @@
   .m-socials { display: flex; gap: 25px; }
   .m-socials a { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-orange); text-decoration: none; }
 
-  /* HERO DESKTOP */
+  /* HERO */
   .hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; padding: 0 60px; overflow: hidden; }
   .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: var(--black); }
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center 20%; opacity: 0; transform: scale(1.08); transition: opacity 1.5s ease-in-out, transform 8s ease-out; }
@@ -139,9 +138,27 @@
   .roster-header .section-title span { color: var(--black); }
   .roster-count { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; color: var(--black); margin: 0; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.1em; }
 
-  .roster-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 0 60px; }
+  /* NUEVA CUADRÍCULA FLEXIBLE PARA 7 ATLETAS */
+  .roster-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 8px; 
+    padding: 0 60px; 
+  }
   
-  .athlete-card { aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; cursor: pointer; }
+  .athlete-card { 
+    width: calc(25% - 8px); /* 4 columnas por defecto en pantallas grandes */
+    aspect-ratio: 4 / 5; 
+    position: relative; 
+    overflow: hidden; 
+    background: #111; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    cursor: pointer; 
+  }
+  
   .athlete-silhouette { width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
   .athlete-card:hover .athlete-silhouette { transform: scale(1.05); }
   .athlete-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.95) 10%, rgba(10,10,10,0.1) 60%, transparent 100%); transition: opacity 0.4s; z-index: 2; }
@@ -156,20 +173,15 @@
   .athlete-team { font-family: 'DM Sans', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 4px; }
   .athlete-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); line-height: 1; margin-bottom: 4px; }
   .athlete-pos { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 0; }
-  
-  .athlete-placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, #1A1A1A 0%, #2A2A2A 100%); display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; z-index: 1;}
-  .athlete-placeholder::after { content: attr(data-initials); font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(255,255,255,0.04); position: absolute; bottom: 40px; right: 15px; }
-  .generic-shape { width: 80%; height: 85%; background: linear-gradient(180deg, rgba(252,115,21,0.1) 0%, rgba(252,115,21,0.02) 100%); border-radius: 100px 100px 20px 20px; position: absolute; bottom: 20px; transition: transform 0.6s ease; }
-  .athlete-card:hover .generic-shape { transform: scale(1.05); }
 
-  /* MODAL BASE */
+  /* MODAL ESTILO MLB.COM AVANZADO */
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 20px;
   }
   .modal-overlay.active { opacity: 1; visibility: visible; }
   .modal-box {
-    background: var(--light-graphite); width: 100%; border-radius: 8px; padding: 40px; position: relative;
+    background: var(--light-graphite); width: 100%; max-width: 850px; border-radius: 8px; padding: 40px; position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s ease; border-top: 4px solid var(--brand-orange); max-height: 95vh;
   }
   .modal-overlay.active .modal-box { transform: translateY(0); }
@@ -179,11 +191,13 @@
   }
   .modal-close:hover { color: var(--brand-orange); }
 
-  /* MODAL MLB SPECIFIC */
-  #mlbModal .modal-box { max-width: 850px; }
   .modal-content-wrapper { display: flex; gap: 40px; align-items: center; overflow-y: auto; }
   .modal-profile { flex: 0 0 220px; text-align: center; }
-  .modal-profile img { width: 100%; max-width: 180px; border-radius: 50%; background: #111; border: 4px solid var(--brand-orange); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); object-fit: cover; aspect-ratio: 1/1; }
+  .modal-profile img {
+    width: 100%; max-width: 180px; border-radius: 50%; background: #111;
+    border: 4px solid var(--brand-orange); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    object-fit: cover; aspect-ratio: 1/1;
+  }
   .modal-profile h3 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--white); line-height: 0.9; margin: 0 0 5px 0; }
   .modal-profile p { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin: 0; }
 
@@ -199,7 +213,7 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   .modal-powered { text-align: right; margin-top: 15px; font-family: 'DM Sans', sans-serif; font-size: 9px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
 
-  /* TEAM - FOTOS ENMARCADAS Y CENTRADAS PARA EVITAR CORTES AL HACER ZOOM */
+  /* TEAM */
   .team { padding: 120px 0; background-color: var(--white); }
   .team-container { max-width: 75%; margin: 0 auto; }
   .team-header { display: flex; justify-content: space-between; align-items: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
@@ -269,8 +283,9 @@
   /* -------------------------------------------------------------
      SOLO SE APLICARÁ EN PANTALLAS PEQUEÑAS Y CELULARES 
      ------------------------------------------------------------- */
+  /* Ajuste de cuadrícula Roster progresivo */
   @media (max-width: 1200px) { 
-    .roster-grid { grid-template-columns: repeat(4, 1fr); } 
+    .athlete-card { width: calc(33.333% - 8px); } /* 3 columnas en tablet grande */
   }
   
   @media (max-width: 900px) {
@@ -278,17 +293,14 @@
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
 
-    /* CORRECCIÓN FINAL DEL HERO EN MÓVIL (ESTILO POSTER SIN ZOOM GROTESCO) */
     .hero { min-height: 90vh; padding: 0 30px; align-items: flex-end; padding-bottom: 60px; }
     .hero-slider .slide {
-        /* La magia: auto altura para no estirar de más, forzando a que ocupe el 55% de la pantalla */
         background-size: auto 55vh !important; 
         background-position: top center !important; 
         background-repeat: no-repeat !important; 
         background-color: var(--black) !important;
     }
     .hero-overlay {
-        /* Degradado que oscurece perfectamente el corte inferior de la foto */
         background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.4) 30%, rgba(10,10,10,1) 54%, rgba(10,10,10,1) 100%) !important;
     }
     .hero-content { padding-top: 0; margin-top: 0; z-index: 10; }
@@ -310,7 +322,8 @@
     .roster { padding: 50px 0; }
     .roster-header { width: 100%; padding: 0 30px; margin-bottom: 20px; }
     .roster-count { white-space: normal; }
-    .roster-grid { grid-template-columns: repeat(2, 1fr); padding: 0 30px; }
+    .roster-grid { padding: 0 30px; }
+    .athlete-card { width: calc(50% - 8px); } /* 2 columnas en movil horizontal/tablet pequeña */
     
     .team { padding: 80px 0; } .team-container { max-width: 90%; }
     .contact { grid-template-columns: 1fr; padding: 80px 30px; }
@@ -327,12 +340,13 @@
   }
   
   @media (max-width: 600px) {
-    .roster-grid { grid-template-columns: 1fr; }
+    .athlete-card { width: 100%; } /* 1 columna en teléfonos pequeños */
   }
 </style>
 </head>
 <body id="top">
 
+<!-- NAV DESKTOP -->
 <nav id="mainNav">
   <a href="#top" class="nav-logo">SIDELINE</a>
   <ul class="nav-links">
@@ -347,6 +361,7 @@
   </button>
 </nav>
 
+<!-- MENÚ OVERLAY MOBILE ELEGANTE -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
   
@@ -368,6 +383,7 @@
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-slider" id="heroSlider">
     <div class="slide active" style="background-image: url('https://i.postimg.cc/dVvSGNMP/ADAMES.png')"></div>
@@ -388,6 +404,7 @@
   </div>
 </section>
 
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
     <span class="ticker-item">Brand Strategy <span>✦</span></span>
@@ -407,6 +424,7 @@
   </div>
 </div>
 
+<!-- MANIFESTO / ABOUT -->
 <section class="manifesto" id="about">
   <div class="manifesto-left">
     <div class="manifesto-left-content">
@@ -428,6 +446,7 @@
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-header">
     <div class="services-header-left">
@@ -439,6 +458,7 @@
     </div>
   </div>
   <div class="services-grid">
+    <!-- Card 1 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">01</div>
@@ -446,6 +466,7 @@
       </div>
       <p class="service-desc">Together with the athlete, we define the identity strategic foundation of the brand — clarifying values, voice, and positioning to guide every decision that follows.</p>
     </div>
+    <!-- Card 2 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">02</div>
@@ -453,6 +474,7 @@
       </div>
       <p class="service-desc">From cinematic video to editorial photography and commercial campaigns, we produce content built for immediate release.</p>
     </div>
+    <!-- Card 3 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">03</div>
@@ -460,6 +482,7 @@
       </div>
       <p class="service-desc">We build long-term brand roadmaps that evolve with the athlete’s career, on and off the field.</p>
     </div>
+    <!-- Card 4 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">04</div>
@@ -467,6 +490,7 @@
       </div>
       <p class="service-desc">We help athletes identify strategic brand partnerships and provide the creative and production support needed to execute each campaign.</p>
     </div>
+    <!-- Card 5 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">05</div>
@@ -474,6 +498,7 @@
       </div>
       <p class="service-desc">We guide athletes through media moments, interviews, and public appearances — ensuring their voice and story are communicated clearly.</p>
     </div>
+    <!-- Card 6 -->
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">06</div>
@@ -484,6 +509,7 @@
   </div>
 </section>
 
+<!-- ROSTER -->
 <section class="roster" id="roster">
   <div class="roster-header">
     <div class="section-eyebrow">Our Athletes</div>
@@ -493,8 +519,9 @@
   
   <div class="roster-grid">
     
+    <!-- Athlete 1: Junior Caminero -->
     <div class="athlete-card fade-in" data-mlb-id="691406" data-name="Junior Caminero" data-team="Tampa Bay Rays" data-pos="3B">
-      <img src="https://i.postimg.cc/g0mGbzLc/CAMINERO2.png" class="athlete-silhouette" alt="Junior Caminero">
+      <img src="https://i.postimg.cc/k4njjKKh/CAMINERO.png" class="athlete-silhouette" alt="Junior Caminero">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -505,8 +532,9 @@
       </div>
     </div>
 
+    <!-- Athlete 2: Willy Adames -->
     <div class="athlete-card fade-in" data-mlb-id="642715" data-name="Willy Adames" data-team="San Francisco Giants" data-pos="SS">
-      <img src="https://i.postimg.cc/Xv4n6jB7/ADAMES2.png" class="athlete-silhouette" alt="Willy Adames">
+      <img src="https://i.postimg.cc/26zHHhhJ/ADAMES.png" class="athlete-silhouette" alt="Willy Adames">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -517,8 +545,9 @@
       </div>
     </div>
 
+    <!-- Athlete 3: Christopher Morel -->
     <div class="athlete-card fade-in" data-mlb-id="666624" data-name="Christopher Morel" data-team="Miami Marlins" data-pos="LF">
-      <img src="https://i.postimg.cc/mrBTWL1r/MOREL2.png" class="athlete-silhouette" alt="Christopher Morel">
+      <img src="https://i.postimg.cc/4y0BN0q7/MOREL.png" class="athlete-silhouette" alt="Christopher Morel">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -529,8 +558,9 @@
       </div>
     </div>
 
+    <!-- Athlete 4: Marcell Ozuna -->
     <div class="athlete-card fade-in" data-mlb-id="542303" data-name="Marcell Ozuna" data-team="Pittsburgh Pirates" data-pos="DH">
-      <img src="https://i.postimg.cc/6QtBxW4p/OZUNA2.png" class="athlete-silhouette" alt="Marcell Ozuna">
+      <img src="https://i.postimg.cc/vH10SQxW/OZUNA-FINAL.png" class="athlete-silhouette" alt="Marcell Ozuna">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -541,75 +571,49 @@
       </div>
     </div>
 
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="AR"><div class="generic-shape"></div></div>
+    <!-- Athlete 5: Angel Genao -->
+    <div class="athlete-card fade-in" data-mlb-id="682859" data-name="Angel Genao" data-team="Cleveland Guardians" data-pos="INF">
+      <img src="https://i.postimg.cc/kGGTCC13/ANGEL-GENAO.png" class="athlete-silhouette" alt="Angel Genao">
       <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
+      <div class="athlete-tag">MLB · Active</div>
+      <div class="live-stats-btn">View MLB Stats</div>
       <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
-        <div class="athlete-name">Augustin<br>Ramirez</div>
-        <div class="athlete-pos">TBD</div>
-      </div>
-    </div>
-
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="HR"><div class="generic-shape"></div></div>
-      <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
-      <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
-        <div class="athlete-name">Heliot<br>Ramos</div>
-        <div class="athlete-pos">TBD</div>
-      </div>
-    </div>
-
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="ER"><div class="generic-shape"></div></div>
-      <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
-      <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
-        <div class="athlete-name">Emmanuel<br>Rodriguez</div>
-        <div class="athlete-pos">TBD</div>
-      </div>
-    </div>
-
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="AG"><div class="generic-shape"></div></div>
-      <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
-      <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
+        <div class="athlete-team">Cleveland Guardians</div>
         <div class="athlete-name">Angel<br>Genao</div>
-        <div class="athlete-pos">TBD</div>
+        <div class="athlete-pos">INF</div>
       </div>
     </div>
 
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="MA"><div class="generic-shape"></div></div>
+    <!-- Athlete 6: Geraldo Perdomo -->
+    <div class="athlete-card fade-in" data-mlb-id="672695" data-name="Geraldo Perdomo" data-team="Arizona Diamondbacks" data-pos="SS">
+      <img src="https://i.postimg.cc/PrLSFtvw/PERDOMO.png" class="athlete-silhouette" alt="Geraldo Perdomo">
       <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
+      <div class="athlete-tag">MLB · Active</div>
+      <div class="live-stats-btn">View MLB Stats</div>
       <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
-        <div class="athlete-name">Miguel<br>Andujar</div>
-        <div class="athlete-pos">TBD</div>
+        <div class="athlete-team">Arizona Diamondbacks</div>
+        <div class="athlete-name">Geraldo<br>Perdomo</div>
+        <div class="athlete-pos">SS</div>
       </div>
     </div>
 
-    <div class="athlete-card fade-in">
-      <div class="athlete-placeholder" data-initials="HR"><div class="generic-shape"></div></div>
+    <!-- Athlete 7: Heliot Ramos -->
+    <div class="athlete-card fade-in" data-mlb-id="671218" data-name="Heliot Ramos" data-team="San Francisco Giants" data-pos="OF">
+      <img src="https://i.postimg.cc/28Bx72gZ/RAMOS.png" class="athlete-silhouette" alt="Heliot Ramos">
       <div class="athlete-overlay"></div>
-      <div class="athlete-tag" style="background:#555; color:#fff;">TBD</div>
+      <div class="athlete-tag">MLB · Active</div>
+      <div class="live-stats-btn">View MLB Stats</div>
       <div class="athlete-info">
-        <div class="athlete-team" style="color:#aaa;">TBD</div>
-        <div class="athlete-name">Hector<br>Rodriguez</div>
-        <div class="athlete-pos">TBD</div>
+        <div class="athlete-team">San Francisco Giants</div>
+        <div class="athlete-name">Heliot<br>Ramos</div>
+        <div class="athlete-pos">OF</div>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- TEAM -->
 <section class="team" id="team">
   <div class="team-container">
     <div class="team-header">
@@ -650,6 +654,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-left">
     <h2 class="contact-title">Let's<br>Build<br>Your<br><span>Brand.</span></h2>
@@ -678,19 +683,22 @@
   </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">SIDELINE</div>
-  <div class="footer-copy">© 2025 Sideline Agency. All rights reserved.</div>
+  <div class="footer-copy">© 2026 Sideline Agency. All rights reserved.</div>
   <div class="footer-socials">
     <a href="https://www.instagram.com/dugoutsportsm/" target="_blank">Instagram</a>
     <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
+<!-- BOTÓN SCROLL TO TOP -->
 <a href="#top" id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
   <svg class="scroll-top-icon" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
 </a>
 
+<!-- MODAL PARA LIVE STATS ESTILO MLB -->
 <div id="mlbModal" class="modal-overlay">
   <div class="modal-box">
     <button class="modal-close" id="closeModal">×</button>
@@ -728,6 +736,7 @@
   </div>
 </div>
 
+<!-- MODAL DE SUCCESS PREMIUM PARA EL FORMULARIO -->
 <div id="successModal" class="modal-overlay">
   <div class="modal-box" style="max-width: 450px; text-align: center; padding: 60px 40px;">
     <button class="modal-close" id="closeSuccessModal">×</button>
