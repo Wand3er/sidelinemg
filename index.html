@@ -274,12 +274,11 @@
   }
   .team-card:hover .team-photo { filter: grayscale(0%) contrast(1); transform: scale(1.04); }
   
-  .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 26px 26px; background: linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.82) 55%, transparent 100%); transform: translateY(28px); transition: transform 0.35s ease; z-index: 2; }
-  .team-card:hover .team-info { transform: translateY(0); }
-  .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--white); margin-bottom: 2px; letter-spacing: 0.03em; }
-  .team-role { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 12px; }
-  .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,0.82); opacity: 0; transition: opacity 0.35s ease 0.05s; z-index: 2;}
-  .team-card:hover .team-bio { opacity: 1; }
+  .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px 26px 24px; background: linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.78) 55%, transparent 100%); z-index: 2; }
+  .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--white); margin-bottom: 2px; letter-spacing: 0.03em; line-height: 1; }
+  .team-role { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 0; }
+  .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,0.85); max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, margin-top 0.35s ease; z-index: 2;}
+  .team-card:hover .team-bio { max-height: 120px; opacity: 1; margin-top: 12px; }
 
   /* CONTACT */
   .contact { background: var(--graphite); padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; position: relative; overflow: hidden;}
@@ -319,8 +318,7 @@
      RESPONSIVE & TOUCH DEVICES
      ------------------------------------------------------------- */
   @media (hover: none) {
-    .team-info { transform: translateY(0); }
-    .team-bio { opacity: 1; }
+    .team-bio { max-height: 120px; opacity: 1; margin-top: 10px; }
     .team-photo { filter: grayscale(20%); }
   }
 
@@ -367,8 +365,7 @@
     
     .team { padding: 80px 0; }
     .team-container { padding: 0 30px; }
-    .team-info { transform: translateY(0); }
-    .team-bio { opacity: 1; }
+    .team-bio { max-height: 120px; opacity: 1; margin-top: 10px; }
     .team-photo { filter: grayscale(0%); }
 
     .contact { grid-template-columns: 1fr; padding: 80px 30px; }
