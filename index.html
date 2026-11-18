@@ -4,9 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIDELINE — Building Athletes Into Scalable Brands</title>
+<meta name="description" content="SIDELINE is a full-service athlete brand agency turning athletic excellence into enduring commercial identity. Brand strategy, content production, PR & media, and commercial partnerships.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://sidelinemg.com/">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SIDELINE">
+<meta property="og:title" content="SIDELINE — Athlete Brand Agency">
+<meta property="og:description" content="We don't manage athletes. We architect legacies — turning athletic excellence into enduring commercial identity.">
+<meta property="og:url" content="https://sidelinemg.com/">
+<meta property="og:image" content="https://sidelinemg.com/OG_IMAGE.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SIDELINE — Athlete Brand Agency">
+<meta name="twitter:description" content="Building athletes into scalable brands. Full-service brand strategy, content production, partnerships, and PR.">
+<meta name="twitter:image" content="https://sidelinemg.com/OG_IMAGE.jpg">
+
+<!-- Preload Hero LCP Image & Fonts -->
+<link rel="preload" as="image" href="assets/images/hero-adames.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "name": "SIDELINE",
+  "alternateName": "Sideline Sports Marketing",
+  "url": "https://sidelinemg.com/",
+  "logo": "https://sidelinemg.com/assets/images/apple-touch-icon.png",
+  "image": "https://sidelinemg.com/OG_IMAGE.jpg",
+  "description": "Full-service athlete brand agency turning athletic excellence into enduring commercial identity.",
+  "foundingDate": "2025",
+  "email": "admin@sidelinemg.com",
+  "telephone": "+1-809-590-6325",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Hatuey 52A, Los Cacicazgos",
+    "addressLocality": "Santo Domingo",
+    "addressRegion": "Distrito Nacional",
+    "addressCountry": "DO"
+  },
+  "founder": [
+    { "@type": "Person", "name": "Darling José", "jobTitle": "Founder & Brand Director" },
+    { "@type": "Person", "name": "Marco Cabrera", "jobTitle": "Head of Partnerships & Strategy" },
+    { "@type": "Person", "name": "Sebastián Mañón", "jobTitle": "Head of Content & Digital" }
+  ]
+}
+</script>
+
 <style>
   :root {
     --brand-orange: #fc7315;
@@ -20,7 +72,7 @@
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
   /* NAV & HEADER DINÁMICO (DESKTOP) */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; transition: 0.4s ease; }
@@ -35,6 +87,7 @@
   nav.scrolled .nav-links a:hover { color: var(--brand-orange); }
 
   .nav-cta { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black) !important; background: var(--white); padding: 12px 28px; text-decoration: none; transition: 0.3s ease !important; text-shadow: none !important; }
+  .nav-cta:hover { background: var(--brand-orange) !important; color: var(--white) !important; }
   nav.scrolled .nav-cta { background: var(--black); color: var(--white) !important; }
   nav.scrolled .nav-cta:hover { background: var(--brand-orange) !important; color: var(--white) !important; }
 
@@ -75,7 +128,7 @@
   .hero-title span { color: var(--brand-orange); }
   .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 26px); font-style: italic; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.5; max-width: 550px; margin-bottom: 40px; }
   .hero-actions { display: flex; gap: 24px; align-items: center; }
-  .btn-primary { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 18px 40px; text-decoration: none; transition: background 0.25s ease, transform 0.2s; }
+  .btn-primary { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 18px 40px; text-decoration: none; transition: background 0.25s ease, color 0.25s ease, transform 0.2s; }
   .btn-primary:hover { background: var(--brand-orange); color: var(--white); transform: translateY(-2px); }
   .btn-ghost { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 12px; transition: color 0.2s; }
   .btn-ghost::after { content: ''; display: block; width: 40px; height: 1px; background: currentColor; transition: width 0.3s ease; }
@@ -109,6 +162,8 @@
   .pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: var(--brand-orange); letter-spacing: 0.1em; min-width: 28px; }
   .pillar-text { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--white); letter-spacing: 0.02em; }
   .pillar-sub { font-size: 12px; font-weight: 300; color: var(--gray); margin-top: 3px; }
+  .pillar-arrow { margin-left: auto; color: rgba(255,255,255,0.35); transition: color 0.3s ease, transform 0.3s ease; }
+  .pillar:hover .pillar-arrow { color: var(--brand-orange); transform: translateX(4px); }
 
   /* SERVICES */
   .services { padding: 120px 60px; position: relative; background-color: var(--graphite); color: var(--white); }
@@ -128,7 +183,7 @@
   .service-header-row { display: block; }
   .service-icon { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--brand-orange); opacity: 0.5; line-height: 1; margin-bottom: 24px; }
   .service-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; color: var(--white); margin-bottom: 16px; }
-  .service-desc { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.6); }
+  .service-desc { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.65); }
 
   /* ROSTER */
   .roster { padding: 120px 0; background: var(--brand-orange); overflow: hidden; position: relative; }
@@ -140,7 +195,7 @@
 
   /* CUADRÍCULA FLEXIBLE PARA EL ROSTER */
   .roster-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 60px; }
-  .athlete-card { width: calc(25% - 8px); aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; cursor: pointer; }
+  .athlete-card { width: calc(25% - 8px); aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: #111; display: flex; justify-content: center; align-items: flex-end; cursor: pointer; border-radius: 2px; }
   .athlete-silhouette { width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: absolute; bottom: 0; transition: transform 0.5s ease; z-index: 1; }
   .athlete-card:hover .athlete-silhouette { transform: scale(1.05); }
   .athlete-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.95) 10%, rgba(10,10,10,0.1) 60%, transparent 100%); transition: opacity 0.4s; z-index: 2; }
@@ -148,7 +203,7 @@
   .athlete-tag { position: absolute; top: 20px; left: 20px; font-family: 'DM Sans', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 4px 10px; opacity: 0; transform: translateY(-8px); transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s; z-index: 3;}
   .athlete-card:hover .athlete-tag { opacity: 1; transform: translateY(0); }
   
-  .live-stats-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -30%); background: var(--black); border: 1px solid var(--white); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 12px 24px; border-radius: 30px; opacity: 0; z-index: 4; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); pointer-events: none;}
+  .live-stats-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -30%); background: var(--black); border: 1px solid var(--white); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 12px 24px; border-radius: 30px; opacity: 0; z-index: 4; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); pointer-events: none; white-space: nowrap;}
   .athlete-card[data-mlb-id]:hover .live-stats-btn { opacity: 1; transform: translate(-50%, -50%); }
 
   .athlete-info { position: relative; width: 100%; padding: 30px 24px; z-index: 3;}
@@ -163,7 +218,7 @@
   }
   .modal-overlay.active { opacity: 1; visibility: visible; }
   .modal-box {
-    background: var(--light-graphite); width: 100%; max-width: 850px; border-radius: 8px; padding: 40px; position: relative;
+    background: var(--light-graphite); width: 100%; max-width: 860px; border-radius: 8px; padding: 40px; position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s ease; border-top: 4px solid var(--brand-orange); max-height: 95vh;
   }
   .modal-overlay.active .modal-box { transform: translateY(0); }
@@ -176,9 +231,9 @@
   .modal-content-wrapper { display: flex; gap: 40px; align-items: center; overflow-y: auto; }
   .modal-profile { flex: 0 0 220px; text-align: center; }
   .modal-profile img {
-    width: 100%; max-width: 180px; border-radius: 50%; background: #111;
+    width: 100%; max-width: 180px; border-radius: 50%; background: #151515;
     border: 4px solid var(--brand-orange); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    object-fit: cover; aspect-ratio: 1/1;
+    object-fit: cover; object-position: top center; aspect-ratio: 1/1;
   }
   .modal-profile h3 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--white); line-height: 0.9; margin: 0 0 5px 0; }
   .modal-profile p { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin: 0; }
@@ -189,43 +244,41 @@
   .mlb-table td { padding: 14px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 400; }
   .mlb-table tbody tr:hover { background: rgba(255,255,255,0.03); }
   .mlb-table .career-row { font-weight: 700; color: var(--brand-orange); border-top: 2px solid rgba(252, 115, 21, 0.5); background: rgba(0,0,0,0.2); }
+  .level-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px; border-radius: 3px; background: rgba(252, 115, 21, 0.18); color: var(--brand-orange); margin-left: 6px; vertical-align: middle; }
   
   .modal-loader { display: none; justify-content: center; align-items: center; padding: 40px 0; flex-direction: column; gap: 15px; width: 100%;}
   .spinner { width: 40px; height: 40px; border: 3px solid rgba(252, 115, 21, 0.2); border-top-color: var(--brand-orange); border-radius: 50%; animation: spin 1s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .modal-powered { text-align: right; margin-top: 15px; font-family: 'DM Sans', sans-serif; font-size: 9px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
+  .modal-powered { text-align: right; margin-top: 15px; font-family: 'DM Sans', sans-serif; font-size: 9px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; }
 
-  /* TEAM */
+  /* TEAM — FULL-BLEED EDITORIAL PORTRAITS */
   .team { padding: 120px 0; background-color: var(--white); }
-  .team-container { max-width: 75%; margin: 0 auto; }
+  .team-container { max-width: 1280px; padding: 0 60px; margin: 0 auto; }
   .team-header { display: flex; justify-content: space-between; align-items: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
   .team-header-left { flex: 1; min-width: 300px; }
   .team-header-right { flex: 1; min-width: 300px; max-width: 500px; }
   .team-header .section-title { color: var(--black); }
-  .team-intro { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6; color: var(--gray); margin: 0; }
-  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .team-intro { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--gray); margin: 0; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   
-  .team-card { background: var(--light-gray); position: relative; overflow: hidden; aspect-ratio: 3/4; border-radius: 4px; }
+  .team-card { background: #141414; position: relative; overflow: hidden; aspect-ratio: 3/4; border-radius: 4px; box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
   .team-photo { 
     position: absolute; 
-    top: 8%; 
-    left: 10%; 
-    width: 80%; 
-    height: 75%; 
+    inset: 0;
+    width: 100%; 
+    height: 100%; 
     object-fit: cover; 
-    object-position: center 15%; 
-    filter: grayscale(100%); 
-    transition: filter 0.5s ease, transform 0.5s ease; 
-    border-radius: 4px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    object-position: center 12%; 
+    filter: grayscale(100%) contrast(1.05); 
+    transition: filter 0.55s ease, transform 0.65s ease; 
   }
-  .team-card:hover .team-photo { filter: grayscale(0%); transform: scale(1.05); }
+  .team-card:hover .team-photo { filter: grayscale(0%) contrast(1); transform: scale(1.04); }
   
-  .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(10,10,10,0.95) 45%, transparent); transform: translateY(40px); transition: transform 0.35s ease; z-index: 2; }
+  .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 26px 26px; background: linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.82) 55%, transparent 100%); transform: translateY(28px); transition: transform 0.35s ease; z-index: 2; }
   .team-card:hover .team-info { transform: translateY(0); }
-  .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); margin-bottom: 2px; }
-  .team-role { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 12px; }
-  .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,0.8); opacity: 0; transition: opacity 0.3s ease 0.1s; z-index: 2;}
+  .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--white); margin-bottom: 2px; letter-spacing: 0.03em; }
+  .team-role { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-orange); margin-bottom: 12px; }
+  .team-bio { font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,0.82); opacity: 0; transition: opacity 0.35s ease 0.05s; z-index: 2;}
   .team-card:hover .team-bio { opacity: 1; }
 
   /* CONTACT */
@@ -234,12 +287,12 @@
   .contact-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 96px); line-height: 0.92; color: var(--white); margin-bottom: 40px; }
   .contact-title span { color: var(--brand-orange); }
   .contact-links { display: flex; flex-direction: column; gap: 20px; }
-  .contact-link { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 16px; transition: color 0.2s; }
+  .contact-link { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); text-decoration: none; display: flex; align-items: center; gap: 16px; transition: color 0.2s; }
   a.contact-link:hover { color: var(--brand-orange); }
-  .contact-link-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-orange); min-width: 60px; }
+  .contact-link-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand-orange); min-width: 65px; font-weight: 500; }
   .contact-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 3px; background: var(--black); padding: 40px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
   .contact-form-field { background: rgba(255,255,255,0.03); border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: border-color 0.25s, background 0.25s; width: 100%; }
-  .contact-form-field::placeholder { color: rgba(255,255,255,0.3); font-size: 12px; letter-spacing: 0.1em; }
+  .contact-form-field::placeholder { color: rgba(255,255,255,0.35); font-size: 12px; letter-spacing: 0.1em; }
   .contact-form-field:focus { border-bottom-color: var(--brand-orange); background: rgba(255,255,255,0.06); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
   .contact-submit { background: var(--brand-orange); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; border: none; padding: 20px 40px; margin-top: 16px; align-self: flex-start; transition: all 0.25s ease; cursor: pointer; border-radius: 2px;}
@@ -247,24 +300,30 @@
 
   /* FOOTER */
   footer { background: #050505; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.4em; color: var(--white); }
-  .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.4em; color: var(--white); text-decoration: none; }
+  .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
   .footer-socials { display: flex; gap: 32px; }
   .footer-socials a { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
   .footer-socials a:hover { color: var(--brand-orange); }
 
   /* BOTÓN SCROLL TO TOP */
-  .scroll-top-btn { position: fixed; bottom: 100px; right: 40px; width: 50px; height: 50px; background-color: var(--black); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
+  .scroll-top-btn { position: fixed; bottom: 40px; right: 40px; width: 50px; height: 50px; background-color: var(--black); border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 999; }
   .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
   .scroll-top-btn:hover { transform: translateY(-5px); background-color: var(--white); }
   .scroll-top-icon { width: 20px; height: 20px; fill: none; stroke: var(--brand-orange); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 
-  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
   
   /* -------------------------------------------------------------
-     SOLO SE APLICARÁ EN PANTALLAS PEQUEÑAS Y CELULARES 
+     RESPONSIVE & TOUCH DEVICES
      ------------------------------------------------------------- */
+  @media (hover: none) {
+    .team-info { transform: translateY(0); }
+    .team-bio { opacity: 1; }
+    .team-photo { filter: grayscale(20%); }
+  }
+
   @media (max-width: 1200px) { 
     .athlete-card { width: calc(33.333% - 8px); } 
   }
@@ -306,11 +365,16 @@
     .roster-grid { padding: 0 30px; }
     .athlete-card { width: calc(50% - 8px); } 
     
-    .team { padding: 80px 0; } .team-container { max-width: 90%; }
+    .team { padding: 80px 0; }
+    .team-container { padding: 0 30px; }
+    .team-info { transform: translateY(0); }
+    .team-bio { opacity: 1; }
+    .team-photo { filter: grayscale(0%); }
+
     .contact { grid-template-columns: 1fr; padding: 80px 30px; }
     .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-    .scroll-top-btn { right: 20px; bottom: 120px; }
+    footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 30px; }
+    .scroll-top-btn { right: 20px; bottom: 30px; }
     
     .modal-box { padding: 30px 20px; }
     .modal-content-wrapper { flex-direction: column; align-items: stretch; gap: 20px; }
@@ -336,13 +400,13 @@
     <li><a href="#team">Team</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
+  <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">×</button>
   
   <div class="mobile-links-container">
     <a href="#about" class="mobile-link">About</a>
@@ -356,17 +420,17 @@
     <p class="m-contact-label">Email</p>
     <a href="mailto:admin@sidelinemg.com" class="m-contact-link">admin@sidelinemg.com</a>
     <div class="m-socials">
-      <a href="https://www.instagram.com/dugoutsportsm/" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/dugoutsportsm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <section class="hero">
   <div class="hero-slider" id="heroSlider">
-    <div class="slide active" style="background-image: url('https://i.postimg.cc/dVvSGNMP/ADAMES.png')"></div>
-    <div class="slide" style="background-image: url('https://i.postimg.cc/t45vkdbr/JUNIOR.png')"></div>
-    <div class="slide" style="background-image: url('https://i.postimg.cc/QdbYmgDn/OZUNA.png')"></div>
+    <div class="slide active" style="background-image: url('assets/images/hero-adames.webp')"></div>
+    <div class="slide" style="background-image: url('assets/images/hero-junior.webp')"></div>
+    <div class="slide" style="background-image: url('assets/images/hero-ozuna.webp')"></div>
   </div>
   <div class="hero-overlay"></div>
   
@@ -387,14 +451,14 @@
     <span class="ticker-item">Content Production <span>✦</span></span>
     <span class="ticker-item">Digital Growth <span>✦</span></span>
     <span class="ticker-item">Partnerships <span>✦</span></span>
-    <span class="ticker-item">PR & Media <span>✦</span></span>
+    <span class="ticker-item">PR &amp; Media <span>✦</span></span>
     <span class="ticker-item">Athlete Marketing <span>✦</span></span>
     <span class="ticker-item">Long-Term Brand Roadmap <span>✦</span></span>
     <span class="ticker-item">Brand Strategy <span>✦</span></span>
     <span class="ticker-item">Content Production <span>✦</span></span>
     <span class="ticker-item">Digital Growth <span>✦</span></span>
     <span class="ticker-item">Partnerships <span>✦</span></span>
-    <span class="ticker-item">PR & Media <span>✦</span></span>
+    <span class="ticker-item">PR &amp; Media <span>✦</span></span>
     <span class="ticker-item">Athlete Marketing <span>✦</span></span>
     <span class="ticker-item">Long-Term Brand Roadmap <span>✦</span></span>
   </div>
@@ -437,7 +501,7 @@
         <div class="service-icon">01</div>
         <div class="service-name">Brand<br>Strategy</div>
       </div>
-      <p class="service-desc">Together with the athlete, we define the identity strategic foundation of the brand — clarifying values, voice, and positioning to guide every decision that follows.</p>
+      <p class="service-desc">Together with the athlete, we define the identity and strategic foundation of the brand — clarifying values, voice, and positioning to guide every decision that follows.</p>
     </div>
     <div class="service-card fade-in">
       <div class="service-header-row">
@@ -463,7 +527,7 @@
     <div class="service-card fade-in">
       <div class="service-header-row">
         <div class="service-icon">05</div>
-        <div class="service-name">Media & PR</div>
+        <div class="service-name">Media &amp; PR</div>
       </div>
       <p class="service-desc">We guide athletes through media moments, interviews, and public appearances — ensuring their voice and story are communicated clearly.</p>
     </div>
@@ -487,7 +551,7 @@
   <div class="roster-grid">
     
     <div class="athlete-card fade-in" data-mlb-id="691406" data-name="Junior Caminero" data-team="Tampa Bay Rays" data-pos="3B">
-      <img src="https://i.postimg.cc/k4njjKKh/CAMINERO.png" class="athlete-silhouette" alt="Junior Caminero">
+      <img src="assets/images/roster-caminero.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Junior Caminero">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -499,7 +563,7 @@
     </div>
 
     <div class="athlete-card fade-in" data-mlb-id="642715" data-name="Willy Adames" data-team="San Francisco Giants" data-pos="SS">
-      <img src="https://i.postimg.cc/26zHHhhJ/ADAMES.png" class="athlete-silhouette" alt="Willy Adames">
+      <img src="assets/images/roster-adames.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Willy Adames">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -510,20 +574,20 @@
       </div>
     </div>
 
-    <div class="athlete-card fade-in" data-mlb-id="682663" data-name="Agustin Ramirez" data-team="Miami Marlins" data-pos="C">
-      <img src="https://i.postimg.cc/4y0BN0q7/MOREL.png" class="athlete-silhouette" alt="Agustin Ramirez">
+    <div class="athlete-card fade-in" data-mlb-id="682663" data-name="Agustín Ramírez" data-team="Miami Marlins" data-pos="C">
+      <img src="assets/images/roster-agustin-ramirez.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Agustín Ramírez">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
       <div class="athlete-info">
         <div class="athlete-team">Miami Marlins</div>
-        <div class="athlete-name">Agustin<br>Ramirez</div>
+        <div class="athlete-name">Agustín<br>Ramírez</div>
         <div class="athlete-pos">C</div>
       </div>
     </div>
 
     <div class="athlete-card fade-in" data-mlb-id="542303" data-name="Marcell Ozuna" data-team="Pittsburgh Pirates" data-pos="DH">
-      <img src="https://i.postimg.cc/vH10SQxW/OZUNA-FINAL.png" class="athlete-silhouette" alt="Marcell Ozuna">
+      <img src="assets/images/roster-ozuna.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Marcell Ozuna">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -534,8 +598,8 @@
       </div>
     </div>
 
-    <div class="athlete-card fade-in" data-mlb-id="682859" data-name="Angel Genao" data-team="Cleveland Guardians" data-pos="INF">
-      <img src="https://i.postimg.cc/kGGTCC13/ANGEL-GENAO.png" class="athlete-silhouette" alt="Angel Genao">
+    <div class="athlete-card fade-in" data-mlb-id="694197" data-name="Angel Genao" data-team="Cleveland Guardians" data-pos="INF">
+      <img src="assets/images/roster-angel-genao.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Angel Genao">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -547,7 +611,7 @@
     </div>
 
     <div class="athlete-card fade-in" data-mlb-id="672695" data-name="Geraldo Perdomo" data-team="Arizona Diamondbacks" data-pos="SS">
-      <img src="https://i.postimg.cc/PrLSFtvw/PERDOMO.png" class="athlete-silhouette" alt="Geraldo Perdomo">
+      <img src="assets/images/roster-perdomo.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Geraldo Perdomo">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -559,7 +623,7 @@
     </div>
 
     <div class="athlete-card fade-in" data-mlb-id="671218" data-name="Heliot Ramos" data-team="San Francisco Giants" data-pos="OF">
-      <img src="https://i.postimg.cc/28Bx72gZ/RAMOS.png" class="athlete-silhouette" alt="Heliot Ramos">
+      <img src="assets/images/roster-ramos.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Heliot Ramos">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -571,7 +635,7 @@
     </div>
 
     <div class="athlete-card fade-in" data-mlb-id="666624" data-name="Christopher Morel" data-team="Miami Marlins" data-pos="LF">
-      <img src="https://i.postimg.cc/KcKC1yLM/C-MOREL.png" class="athlete-silhouette" alt="Christopher Morel">
+      <img src="assets/images/roster-christopher-morel.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Christopher Morel">
       <div class="athlete-overlay"></div>
       <div class="athlete-tag">MLB · Active</div>
       <div class="live-stats-btn">View MLB Stats</div>
@@ -582,11 +646,11 @@
       </div>
     </div>
 
-    <div class="athlete-card fade-in" data-mlb-id="708412" data-name="Jesus Made" data-team="Milwaukee Brewers" data-pos="SS">
-      <img src="https://i.postimg.cc/g0cmQkj0/MADE.png" class="athlete-silhouette" alt="Jesús Made">
+    <div class="athlete-card fade-in" data-mlb-id="815908" data-name="Jesús Made" data-team="Milwaukee Brewers" data-pos="SS">
+      <img src="assets/images/roster-jesus-made.webp" width="900" height="1199" loading="lazy" decoding="async" class="athlete-silhouette" alt="Jesús Made">
       <div class="athlete-overlay"></div>
-      <div class="athlete-tag">MLB · Active</div>
-      <div class="live-stats-btn">View MLB Stats</div>
+      <div class="athlete-tag">MiLB · Top Prospect</div>
+      <div class="live-stats-btn">View Pro Stats</div>
       <div class="athlete-info">
         <div class="athlete-team">Milwaukee Brewers</div>
         <div class="athlete-name">Jesús<br>Made</div>
@@ -610,27 +674,27 @@
     </div>
     <div class="team-grid">
       <div class="team-card fade-in">
-        <img src="https://i.postimg.cc/4Ns10knr/DARLING.png" alt="Darling José" class="team-photo">
+        <img src="assets/images/team-darling.webp" width="900" height="1149" loading="lazy" decoding="async" alt="Darling José" class="team-photo">
         <div class="team-info">
           <div class="team-name">Darling José</div>
-          <div class="team-role">Founder & Brand Director</div>
-          <p class="team-bio">Arquitecto del modelo SIDELINE. Transforma la excelencia deportiva en marcas personales y ecosistemas comerciales diseñados para perdurar más allá del retiro.</p>
+          <div class="team-role">Founder &amp; Brand Director</div>
+          <p class="team-bio">Architect of the SIDELINE model. Transforms athletic excellence into personal brands and commercial ecosystems designed to endure well beyond retirement.</p>
         </div>
       </div>
       <div class="team-card fade-in">
-        <img src="https://i.postimg.cc/gkmK7Fr1/MARCO.png" alt="Marco Cabrera" class="team-photo">
+        <img src="assets/images/team-marco.webp" width="900" height="1155" loading="lazy" decoding="async" alt="Marco Cabrera" class="team-photo">
         <div class="team-info">
           <div class="team-name">Marco Cabrera</div>
-          <div class="team-role">Head of Partnerships & Strategy</div>
-          <p class="team-bio">Estratega enfocado en traducir la visibilidad del atleta en patrocinios de alto valor. Conecta el talento con las marcas correctas para asegurar un ROI real y a largo plazo.</p>
+          <div class="team-role">Head of Partnerships &amp; Strategy</div>
+          <p class="team-bio">Strategist focused on translating athlete visibility into high-value partnerships — connecting talent with the right brands to deliver real, long-term ROI.</p>
         </div>
       </div>
       <div class="team-card fade-in">
-        <img src="https://i.postimg.cc/28rxtR3s/SEBASTIAN.png" alt="Sebastián Mañón" class="team-photo">
+        <img src="assets/images/team-sebastian.webp" width="900" height="1178" loading="lazy" decoding="async" alt="Sebastián Mañón" class="team-photo">
         <div class="team-info">
           <div class="team-name">Sebastián Mañón</div>
-          <div class="team-role">Head of Content & Digital</div>
-          <p class="team-bio">El motor creativo detrás de cada marca. Dirige la producción de SIDELINE para transformar momentos deportivos en contenido diario que domina los algoritmos.</p>
+          <div class="team-role">Head of Content &amp; Digital</div>
+          <p class="team-bio">The creative engine behind every brand. Leads SIDELINE's production to turn defining athletic moments into daily storytelling that commands digital platforms.</p>
         </div>
       </div>
     </div>
@@ -642,13 +706,13 @@
     <h2 class="contact-title">Let's<br>Build<br>Your<br><span>Brand.</span></h2>
     <div class="contact-links">
       <a href="mailto:admin@sidelinemg.com" class="contact-link"><span class="contact-link-label">Email</span>admin@sidelinemg.com</a>
-      <div class="contact-link" style="cursor: default;"><span class="contact-link-label">Office</span>(809) 590-6325</div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Calle+Hatuey+52A,+Los+Cacicazgos,+Distrito+Nacional,+Republica+Dominicana" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-link-label">Location</span>Calle Hatuey 52A, Los Cacicazgos, D.N., República Dominicana</a>
+      <a href="tel:+18095906325" class="contact-link"><span class="contact-link-label">Office</span>(809) 590-6325</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Calle+Hatuey+52A,+Los+Cacicazgos,+Distrito+Nacional,+Republica+Dominicana" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-link-label">Location</span>Calle Hatuey 52A, Los Cacicazgos, D.N., Dominican Republic</a>
     </div>
   </div>
   
   <form id="ajaxContactForm" action="https://formsubmit.co/sebastian@sidelinemg.com" method="POST" class="contact-right">
-    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de SIDELINE">
+    <input type="hidden" name="_subject" value="New inquiry from SIDELINE website">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="box">
 
@@ -666,21 +730,21 @@
 </section>
 
 <footer>
-  <div class="footer-logo">SIDELINE</div>
+  <a href="#top" class="footer-logo">SIDELINE</a>
   <div class="footer-copy">© 2026 Sideline Agency. All rights reserved.</div>
   <div class="footer-socials">
-    <a href="https://www.instagram.com/dugoutsportsm/" target="_blank">Instagram</a>
-    <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/dugoutsportsm/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.linkedin.com/company/dugoutsports/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </footer>
 
-<a href="#top" id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
+<a href="#top" id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">
   <svg class="scroll-top-icon" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
 </a>
 
-<div id="mlbModal" class="modal-overlay">
+<div id="mlbModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalPlayerName">
   <div class="modal-box">
-    <button class="modal-close" id="closeModal">×</button>
+    <button class="modal-close" id="closeModal" aria-label="Close modal">×</button>
     <div class="modal-content-wrapper" id="modalDataWrapper" style="display: none;">
       <div class="modal-profile">
         <img id="modalProfileImg" src="" alt="Player Headshot">
@@ -705,19 +769,19 @@
           </thead>
           <tbody id="modalStatsBody"></tbody>
         </table>
-        <div class="modal-powered">Powered by MLB Stats API</div>
+        <div class="modal-powered">Powered by Official MLB Stats API</div>
       </div>
     </div>
     <div class="modal-loader" id="modalLoader">
       <div class="spinner"></div>
-      <div style="font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--brand-orange); text-transform: uppercase;">Extrayendo Data Oficial de MLB...</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--brand-orange); text-transform: uppercase;">Fetching Official MLB Data...</div>
     </div>
   </div>
 </div>
 
-<div id="successModal" class="modal-overlay">
+<div id="successModal" class="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal-box" style="max-width: 450px; text-align: center; padding: 60px 40px;">
-    <button class="modal-close" id="closeSuccessModal">×</button>
+    <button class="modal-close" id="closeSuccessModal" aria-label="Close dialog">×</button>
     <div style="font-family: 'Bebas Neue', sans-serif; font-size: 50px; color: var(--brand-orange); line-height: 1; margin-bottom: 15px;">MESSAGE RECEIVED.</div>
     <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 40px;">Thank you for reaching out. Our team will review your inquiry and get back to you shortly.</p>
     <button id="successOkBtn" class="contact-submit" style="margin-top: 0; width: 100%;">OK</button>
@@ -725,15 +789,15 @@
 </div>
 
 <script>
-  // Navbar dinámico y Botón Scroll
+  // Dynamic Navbar & Scroll-to-Top Button
   const nav = document.getElementById('mainNav');
   const scrollTopBtn = document.getElementById('scrollTopBtn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
     if (window.scrollY > 500) { scrollTopBtn.classList.add('show'); } else { scrollTopBtn.classList.remove('show'); }
-  });
+  }, { passive: true });
 
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle & Viewport Resize Guard
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
@@ -742,8 +806,13 @@
   hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.add('active'); });
   mobileCloseBtn.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
   mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('active');
+    }
+  });
 
-  // Slider Automático en el Hero
+  // Hero Slider
   const slides = document.querySelectorAll('.hero-slider .slide');
   let currentSlide = 0;
   setInterval(() => {
@@ -752,20 +821,24 @@
     slides[currentSlide].classList.add('active');
   }, 5000);
 
-  // Animaciones fade-in
+  // Scroll Reveal Animations
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // --- LÓGICA DEL MODAL DE MLB STATS ---
+  // --- OFFICIAL MLB + MiLB STATS MODAL ---
   const modal = document.getElementById('mlbModal');
   const btnClose = document.getElementById('closeModal');
   const loader = document.getElementById('modalLoader');
   const dataWrapper = document.getElementById('modalDataWrapper');
   const statsBody = document.getElementById('modalStatsBody');
+  const profileImg = document.getElementById('modalProfileImg');
   
   const closeModal = () => { modal.classList.remove('active'); };
   btnClose.addEventListener('click', closeModal);
@@ -774,56 +847,131 @@
   document.querySelectorAll('.athlete-card[data-mlb-id]').forEach(card => {
     card.addEventListener('click', async () => {
       const mlbId = card.getAttribute('data-mlb-id');
+      const localPhoto = card.querySelector('.athlete-silhouette')?.getAttribute('src') || '';
       document.getElementById('modalPlayerName').innerHTML = card.getAttribute('data-name').replace(' ', '<br>');
       document.getElementById('modalPlayerInfo').textContent = card.getAttribute('data-team') + ' · ' + card.getAttribute('data-pos');
-      document.getElementById('modalProfileImg').src = `https://securea.mlb.com/mlb/images/players/head_shot/${mlbId}.jpg`;
+
+      // Use official MLB high-res headshot with automatic fallback to local player cutout
+      profileImg.onerror = () => {
+        profileImg.onerror = null;
+        if (localPhoto) profileImg.src = localPhoto;
+      };
+      profileImg.src = `https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/${mlbId}/headshot/67/current`;
 
       dataWrapper.style.display = 'none';
       loader.style.display = 'flex';
       modal.classList.add('active');
 
       try {
-        const response = await fetch(`https://statsapi.mlb.com/api/v1/people/${mlbId}?hydrate=stats(group=[hitting],type=[yearByYear,career])`);
+        const response = await fetch(`https://statsapi.mlb.com/api/v1/people/${mlbId}?hydrate=stats(group=[hitting],type=[yearByYear,career],sportIds=[1,11,12,13,14,16])`);
         const data = await response.json();
-        const player = data.people[0];
+        const player = data.people && data.people[0];
         let rowsHtml = '';
 
-        if (player.stats) {
+        const renderSplits = (splits, careerSplit, isMiLB = false) => {
+          let html = '';
+          const last4 = splits.slice(-4);
+          last4.forEach(split => {
+            const st = split.stat || {};
+            const levelBadge = isMiLB && split.sport && split.sport.abbreviation
+              ? `<span class="level-badge">${split.sport.abbreviation}</span>`
+              : '';
+            const teamName = split.team ? split.team.name : 'Combined';
+            html += `<tr><td style="text-align:left;">${split.season}</td><td style="text-align:left; font-weight: 500; color: var(--brand-orange);">${teamName}${levelBadge}</td><td>${st.gamesPlayed ?? 0}</td><td>${st.atBats ?? 0}</td><td>${st.runs ?? 0}</td><td>${st.hits ?? 0}</td><td>${st.homeRuns ?? 0}</td><td>${st.rbi ?? 0}</td><td>${st.avg || '.000'}</td><td>${st.ops || '.000'}</td></tr>`;
+          });
+          if (careerSplit && careerSplit.stat) {
+            const c = careerSplit.stat;
+            const label = isMiLB ? 'PRO CAREER' : 'MLB CAREER';
+            html += `<tr class="career-row"><td colspan="2" style="text-align:left;">${label}</td><td>${c.gamesPlayed ?? 0}</td><td>${c.atBats ?? 0}</td><td>${c.runs ?? 0}</td><td>${c.hits ?? 0}</td><td>${c.homeRuns ?? 0}</td><td>${c.rbi ?? 0}</td><td>${c.avg || '.000'}</td><td>${c.ops || '.000'}</td></tr>`;
+          }
+          return html;
+        };
+
+        if (player && player.stats) {
           const ybyStats = player.stats.find(s => s.type.displayName === 'yearByYear');
           const careerStats = player.stats.find(s => s.type.displayName === 'career');
+          const allSplits = (ybyStats && ybyStats.splits) ? ybyStats.splits : [];
+          const mlbSplits = allSplits.filter(s => s.sport && s.sport.id === 1);
 
-          if (ybyStats && ybyStats.splits) {
-            const mlbSplits = ybyStats.splits.filter(s => s.sport && s.sport.id === 1);
-            const last3 = mlbSplits.slice(-3);
-            last3.forEach(split => {
-              const st = split.stat;
-              rowsHtml += `<tr><td style="text-align:left;">${split.season}</td><td style="text-align:left; font-weight: 500; color: var(--brand-orange);">${split.team ? split.team.name : 'TOT'}</td><td>${st.gamesPlayed || 0}</td><td>${st.atBats || 0}</td><td>${st.runs || 0}</td><td>${st.hits || 0}</td><td>${st.homeRuns || 0}</td><td>${st.rbi || 0}</td><td>${st.avg || '.000'}</td><td>${st.ops || '.000'}</td></tr>`;
-            });
-          }
-
-          if (careerStats && careerStats.splits && careerStats.splits.length > 0) {
-            const c = careerStats.splits[0].stat;
-            rowsHtml += `<tr class="career-row"><td colspan="2" style="text-align:left;">CAREER</td><td>${c.gamesPlayed || 0}</td><td>${c.atBats || 0}</td><td>${c.runs || 0}</td><td>${c.hits || 0}</td><td>${c.homeRuns || 0}</td><td>${c.rbi || 0}</td><td>${c.avg || '.000'}</td><td>${c.ops || '.000'}</td></tr>`;
+          if (mlbSplits.length > 0) {
+            const mlbCareer = careerStats && careerStats.splits
+              ? (careerStats.splits.find(s => !s.sport || s.sport.id === 1) || careerStats.splits[0])
+              : null;
+            rowsHtml = renderSplits(mlbSplits, mlbCareer, false);
+          } else if (allSplits.length > 0) {
+            const milbCareer = careerStats && careerStats.splits ? careerStats.splits[0] : null;
+            rowsHtml = renderSplits(allSplits, milbCareer, true);
           }
         }
 
-        if (rowsHtml === '') rowsHtml = '<tr><td colspan="10" style="padding: 30px;">Stats not available</td></tr>';
+        // Fallback for MiLB prospects whose hydrate call omits minor league sportIds
+        if (rowsHtml === '') {
+          const milbIds = [11, 12, 13, 14, 16];
+          const milbRequests = await Promise.all(
+            milbIds.map(sid =>
+              fetch(`https://statsapi.mlb.com/api/v1/people/${mlbId}/stats?stats=yearByYear&group=hitting&sportId=${sid}`)
+                .then(r => r.json())
+                .catch(() => ({}))
+            )
+          );
+          let combinedSplits = [];
+          milbRequests.forEach(res => {
+            const block = res.stats && res.stats.find(s => s.type && s.type.displayName === 'yearByYear');
+            if (block && block.splits) {
+              combinedSplits = combinedSplits.concat(block.splits);
+            }
+          });
+          combinedSplits.sort((a, b) => Number(a.season) - Number(b.season));
+          if (combinedSplits.length > 0) {
+            // Aggregate career totals across MiLB levels
+            const totals = combinedSplits.reduce((acc, sp) => {
+              const st = sp.stat || {};
+              acc.g += Number(st.gamesPlayed || 0);
+              acc.ab += Number(st.atBats || 0);
+              acc.r += Number(st.runs || 0);
+              acc.h += Number(st.hits || 0);
+              acc.hr += Number(st.homeRuns || 0);
+              acc.rbi += Number(st.rbi || 0);
+              return acc;
+            }, { g: 0, ab: 0, r: 0, h: 0, hr: 0, rbi: 0 });
+            const avgStr = totals.ab > 0 ? (totals.h / totals.ab).toFixed(3).replace(/^0/, '') : '.000';
+            const lastOps = combinedSplits[combinedSplits.length - 1]?.stat?.ops || '.000';
+            const synthCareer = {
+              stat: {
+                gamesPlayed: totals.g,
+                atBats: totals.ab,
+                runs: totals.r,
+                hits: totals.h,
+                homeRuns: totals.hr,
+                rbi: totals.rbi,
+                avg: avgStr,
+                ops: lastOps
+              }
+            };
+            rowsHtml = renderSplits(combinedSplits, synthCareer, true);
+            if (localPhoto) profileImg.src = localPhoto;
+          }
+        }
+
+        if (rowsHtml === '') {
+          rowsHtml = '<tr><td colspan="10" style="padding: 30px;">Official stats currently updating</td></tr>';
+        }
         statsBody.innerHTML = rowsHtml;
       } catch (error) {
-        statsBody.innerHTML = `<tr><td colspan="10" style="padding: 30px; color: var(--brand-orange);">Error fetching live MLB stats.</td></tr>`;
+        statsBody.innerHTML = '<tr><td colspan="10" style="padding: 30px; color: var(--brand-orange);">Unable to load live stats at this moment.</td></tr>';
       }
       loader.style.display = 'none';
       dataWrapper.style.display = 'flex';
     });
   });
 
-  // --- LÓGICA DE ENVÍO DE FORMULARIO (AJAX PREMIUM) ---
+  // --- AJAX CONTACT FORM ---
   const contactForm = document.getElementById('ajaxContactForm');
   const successModal = document.getElementById('successModal');
   const closeSuccessModal = document.getElementById('closeSuccessModal');
   const successOkBtn = document.getElementById('successOkBtn');
 
-  if(contactForm) {
+  if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault(); 
       
@@ -845,11 +993,11 @@
               successModal.classList.add('active'); 
               contactForm.reset(); 
           } else {
-              alert('Oops! Hubo un problema al enviar el mensaje.');
+              alert('Something went wrong while sending your message. Please try again or email admin@sidelinemg.com.');
           }
       })
-      .catch(error => {
-          alert('Oops! Hubo un problema de conexión.');
+      .catch(() => {
+          alert('Connection error. Please try again or email admin@sidelinemg.com.');
       })
       .finally(() => {
           submitBtn.innerHTML = originalText;
@@ -864,6 +1012,14 @@
   successOkBtn.addEventListener('click', closeSuccess);
   successModal.addEventListener('click', (e) => { if (e.target === successModal) { closeSuccess(); } });
 
+  // Global Escape Key Handler
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      closeSuccess();
+      mobileMenu.classList.remove('active');
+    }
+  });
 </script>
 </body>
 </html>

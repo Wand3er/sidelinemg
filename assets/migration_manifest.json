@@ -1,0 +1,142 @@
+{
+  "total_original_mb": 40.93,
+  "total_optimized_mb": 1.18,
+  "overall_savings_pct": 97.1,
+  "assets": [
+    {
+      "remote_url": "https://i.postimg.cc/dVvSGNMP/ADAMES.png",
+      "local_path": "assets/images/hero-adames.webp",
+      "width": 1280,
+      "height": 720,
+      "original_bytes": 1872810,
+      "optimized_bytes": 48112,
+      "savings_pct": 97.4
+    },
+    {
+      "remote_url": "https://i.postimg.cc/t45vkdbr/JUNIOR.png",
+      "local_path": "assets/images/hero-junior.webp",
+      "width": 1920,
+      "height": 1080,
+      "original_bytes": 6286415,
+      "optimized_bytes": 140478,
+      "savings_pct": 97.8
+    },
+    {
+      "remote_url": "https://i.postimg.cc/QdbYmgDn/OZUNA.png",
+      "local_path": "assets/images/hero-ozuna.webp",
+      "width": 1280,
+      "height": 720,
+      "original_bytes": 2175407,
+      "optimized_bytes": 79906,
+      "savings_pct": 96.3
+    },
+    {
+      "remote_url": "https://i.postimg.cc/k4njjKKh/CAMINERO.png",
+      "local_path": "assets/images/roster-caminero.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2661358,
+      "optimized_bytes": 74176,
+      "savings_pct": 97.2
+    },
+    {
+      "remote_url": "https://i.postimg.cc/26zHHhhJ/ADAMES.png",
+      "local_path": "assets/images/roster-adames.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2942909,
+      "optimized_bytes": 76168,
+      "savings_pct": 97.4
+    },
+    {
+      "remote_url": "https://i.postimg.cc/4y0BN0q7/MOREL.png",
+      "local_path": "assets/images/roster-agustin-ramirez.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2694859,
+      "optimized_bytes": 65944,
+      "savings_pct": 97.6
+    },
+    {
+      "remote_url": "https://i.postimg.cc/vH10SQxW/OZUNA-FINAL.png",
+      "local_path": "assets/images/roster-ozuna.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 3239224,
+      "optimized_bytes": 80296,
+      "savings_pct": 97.5
+    },
+    {
+      "remote_url": "https://i.postimg.cc/kGGTCC13/ANGEL-GENAO.png",
+      "local_path": "assets/images/roster-angel-genao.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 5203763,
+      "optimized_bytes": 111316,
+      "savings_pct": 97.9
+    },
+    {
+      "remote_url": "https://i.postimg.cc/PrLSFtvw/PERDOMO.png",
+      "local_path": "assets/images/roster-perdomo.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2282084,
+      "optimized_bytes": 63020,
+      "savings_pct": 97.2
+    },
+    {
+      "remote_url": "https://i.postimg.cc/28Bx72gZ/RAMOS.png",
+      "local_path": "assets/images/roster-ramos.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 3244944,
+      "optimized_bytes": 76406,
+      "savings_pct": 97.6
+    },
+    {
+      "remote_url": "https://i.postimg.cc/KcKC1yLM/C-MOREL.png",
+      "local_path": "assets/images/roster-christopher-morel.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2885189,
+      "optimized_bytes": 73782,
+      "savings_pct": 97.4
+    },
+    {
+      "remote_url": "https://i.postimg.cc/g0cmQkj0/MADE.png",
+      "local_path": "assets/images/roster-jesus-made.webp",
+      "width": 900,
+      "height": 1199,
+      "original_bytes": 2383502,
+      "optimized_bytes": 62916,
+      "savings_pct": 97.4
+    },
+    {
+      "remote_url": "https://i.postimg.cc/4Ns10knr/DARLING.png",
+      "local_path": "assets/images/team-darling.webp",
+      "width": 900,
+      "height": 1149,
+      "original_bytes": 1757994,
+      "optimized_bytes": 107908,
+      "savings_pct": 93.9
+    },
+    {
+      "remote_url": "https://i.postimg.cc/gkmK7Fr1/MARCO.png",
+      "local_path": "assets/images/team-marco.webp",
+      "width": 900,
+      "height": 1155,
+      "original_bytes": 1652314,
+      "optimized_bytes": 88692,
+      "savings_pct": 94.6
+    },
+    {
+      "remote_url": "https://i.postimg.cc/28rxtR3s/SEBASTIAN.png",
+      "local_path": "assets/images/team-sebastian.webp",
+      "width": 900,
+      "height": 1178,
+      "original_bytes": 1637198,
+      "optimized_bytes": 88684,
+      "savings_pct": 94.6
+    }
+  ]
+}
